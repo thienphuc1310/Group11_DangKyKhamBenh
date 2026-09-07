@@ -1,0 +1,76 @@
+
+html
+{
+    min-height: 100%;
+    background-color: #CAE5E8;
+}
+
+/* Panel chua noi dung */
+body
+{
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 35px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+h1, p
+{
+    color: teal;
+    text-align: center;
+}
+form { margin-top: 25px; }
+
+label
+{
+    display: inline-block;
+    width: 110px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"]
+{
+    width: 250px;
+    padding: 9px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+#submit
+{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+}
+
+#submit:hover { background-color: #006666; }
+a { color: teal; }
+
+footer
+{
+    margin-top: 35px;
+    border-top: 1px solid #ddd;
+    color: #777;
+    text-align: center;
+}
+
+@media (max-width: 600px)
+{
+    body { margin: 15px; padding: 25px; }
+
+    label,
+    input[type="text"],
+    input[type="email"]
+    {
+        width: 100%;
+    }
+}
