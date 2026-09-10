@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UCare - Quản lý khám bệnh</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+
+    <div class="logo">
+        <div class="logo-icon">+</div>
+        <div>
+            <h2>UCare</h2>
+            <small>Quản trị viên</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#" onclick="showPage('home')">Trang chủ</a>
+        <a href="#" onclick="showPage('appointment')">Đăng ký khám</a>
+        <a href="#" onclick="showPage('doctors')">Bác sĩ</a>
+        <a href="#" onclick="showPage('specialties')">Chuyên khoa</a>
+    </nav>
+
+    <div class="account">
+
+        <span id="userStatus">Khách</span>
+
+        <button onclick="showPage('login')" id="loginBtn">
+            Đăng nhập
+        </button>
+
+        <button onclick="logout()" id="logoutBtn" class="hidden">
+            Đăng xuất
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+<main>
+
+
+<!-- ========== HOME ========== -->
+<section id="home" class="page active">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <h1>Chăm sóc sức khỏe<br>cùng UCare</h1>
+
+            <p>
+                Đặt lịch khám bệnh trực tuyến nhanh chóng,
+                thuận tiện và an toàn.
+            </p>
+
+            <button class="primary-btn"
+                    onclick="showPage('appointment')">
+                Đăng ký khám ngay
+            </button>
+
+        </div>
+
+        <div class="hero-icon">
+            🏥
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">
+        Dịch vụ của chúng tôi
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">📅</div>
+            <h3>Đặt lịch khám</h3>
+            <p>
+                Đăng ký lịch khám trực tuyến
+                nhanh chóng.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">👨‍⚕️</div>
+            <h3>Đội ngũ bác sĩ</h3>
+            <p>
+                Các bác sĩ giàu kinh nghiệm
+                trong nhiều chuyên khoa.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">💳</div>
+            <h3>Thanh toán</h3>
+            <p>
+                Theo dõi trạng thái thanh toán
+                lịch khám.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========== LOGIN ========== -->
+<section id="login" class="page">
+
+    <div class="form-container">
+
+        <h2>Đăng nhập</h2>
+
+        <p class="form-description">
+            Đăng nhập để sử dụng dịch vụ UCare
+        </p>
+
+        <form onsubmit="login(event)">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Nhập email"
+                required
+            >
+
+            <label>Mật khẩu</label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Nhập mật khẩu"
+                required
+            >
+
+            <button class="primary-btn full">
+                Đăng nhập
+            </button>
+
+        </form>
+
+        <p class="form-bottom">
+            Chưa có tài khoản?
+            <a href="#" onclick="showPage('register')">
+                Đăng ký
+            </a>
+        </p>
+
+        <hr>
+
+        <button
+            class="admin-btn"
+            onclick="showPage('staffLogin')">
+
+            Đăng nhập Admin / Bác sĩ
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========== REGISTER ========== -->
+<section id="register" class="page">
+
+    <div class="form-container">
+
+        <h2>Đăng ký tài khoản</h2>
+
+        <form onsubmit="register(event)">
+
+            <label>Họ và tên</label>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Nguyễn Văn A"
+                required
+            >
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="example@gmail.com"
+                required
+            >
+
+            <label>Số điện thoại</label>
+
+            <input
+                type="text"
+                id="registerPhone"
+                placeholder="0123456789"
+                required
+            >
+
+            <label>Mật khẩu</label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="********"
+                required
+            >
+
+            <button class="primary-btn full">
+                Đăng ký
+            </button>
+
+        </form>
+
+        <p class="form-bottom">
+
+            Đã có tài khoản?
+
+            <a href="#" onclick="showPage('login')">
+                Đăng nhập
+            </a>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========== APPOINTMENT ========== -->
+<section id="appointment" class="page">
+
+    <div class="form-container appointment-form">
+
+        <h2>Đăng ký khám bệnh</h2>
+
+        <p class="form-description">
+            Vui lòng nhập thông tin để đặt lịch khám.
+        </p>
+
+        <!-- Hiển thị khi chưa login -->
+        <div id="loginRequired" class="warning">
+
+            🔒 Bạn cần đăng nhập trước khi đăng ký khám.
+
+            <br><br>
+
+            <button
+                class="primary-btn"
+                onclick="showPage('login')">
+
+                Đăng nhập ngay
+
+            </button>
+
+        </div>
+
+
+        <!-- Form đăng ký khám -->
+        <form
+            id="appointmentForm"
+            class="hidden"
+            onsubmit="bookAppointment(event)">
+
+            <label>Họ và tên</label>
+
+            <input
+                type="text"
+                id="patientName"
+                required
+            >
+
+            <label>Số điện thoại</label>
+
+            <input
+                type="text"
+                id="patientPhone"
+                required
+            >
+
+            <label>Chuyên khoa</label>
+
+            <select id="specialty" required>
+
+                <option value="">
+                    -- Chọn chuyên khoa --
+                </option>
+
+                <option>Nội tổng quát</option>
+                <option>Tim mạch</option>
+                <option>Da liễu</option>
+                <option>Nhi khoa</option>
+                <option>Tai Mũi Họng</option>
+                <option>Răng Hàm Mặt</option>
+
+            </select>
+
+
+            <label>Bác sĩ</label>
+
+            <select required>
+
+                <option value="">
+                    -- Chọn bác sĩ --
+                </option>
+
+                <option>Nguyễn Minh Anh</option>
+                <option>Trần Hoàng Nam</option>
+                <option>Lê Thu Hà</option>
+                <option>Phạm Ngọc Mai</option>
+                <option>Võ Đức Huy</option>
+                <option>Đặng Bảo An</option>
+
+            </select>
+
+
+            <label>Ngày khám</label>
+
+            <input
+                type="date"
+                required
+            >
+
+
+            <label>Giờ khám</label>
+
+            <input
+                type="time"
+                required
+            >
+
+
+            <label>Triệu chứng / Ghi chú</label>
+
+            <textarea
+                placeholder="Nhập thông tin nếu có..."
+            ></textarea>
+
+
+            <button class="primary-btn full">
+
+                📅 Xác nhận đăng ký
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========== PERSONAL INFORMATION ========== -->
+<section id="profile" class="page">
+
+    <div class="profile-container">
+
+        <h2>Thông tin cá nhân</h2>
+
+        <div class="profile-card">
+
+            <div class="avatar">
+                👤
+            </div>
+
+            <div class="profile-info">
+
+                <h3 id="profileName">
+                    Người dùng
+                </h3>
+
+                <p>
+                    📧 Email:
+                    <span id="profileEmail"></span>
+                </p>
+
+                <p>
+                    📱 Số điện thoại:
+                    <span id="profilePhone"></span>
+                </p>
+
+                <p>
+                    👤 Vai trò:
+                    Bệnh nhân
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <h3 class="sub-title">
+            Lịch khám của tôi
+        </h3>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Mã lịch</th>
+                    <th>Chuyên khoa</th>
+                    <th>Bác sĩ</th>
+                    <th>Ngày</th>
+                    <th>Trạng thái</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="myAppointments">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========== DOCTORS ========== -->
+<section id="doctors" class="page">
+
+    <div class="content-container">
+
+        <h2>Đội ngũ bác sĩ</h2>
+
+        <p>
+            Danh sách bác sĩ tại UCare
+        </p>
+
+        <div class="doctor-grid">
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">MA</div>
+                <h3>Nguyễn Minh Anh</h3>
+                <p>Nội tổng quát</p>
+                <span class="active-status">
+                    ● Đang hoạt động
+                </span>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">HN</div>
+                <h3>Trần Hoàng Nam</h3>
+                <p>Tim mạch</p>
+                <span class="active-status">
+                    ● Đang hoạt động
+                </span>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">TH</div>
+                <h3>Lê Thu Hà</h3>
+                <p>Da liễu</p>
+                <span class="active-status">
+                    ● Đang hoạt động
+                </span>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">DH</div>
+                <h3>Võ Đức Huy</h3>
+                <p>Tai Mũi Họng</p>
+                <span class="active-status">
+                    ● Đang hoạt động
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========== SPECIALTIES ========== -->
+<section id="specialties" class="page">
+
+    <div class="content-container">
+
+        <h2>Chuyên khoa</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Mã</th>
+                    <th>Tên chuyên khoa</th>
+                    <th>Mô tả</th>
+                    <th>Số bác sĩ</th>
+                    <th>Hoạt động</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>INT</td>
+                    <td>Nội tổng quát</td>
+                    <td>Khám và điều trị bệnh nội khoa</td>
+                    <td>5</td>
+                    <td>🟢</td>
+                </tr>
+
+                <tr>
+                    <td>CAR</td>
+                    <td>Tim mạch</td>
+                    <td>Chẩn đoán và điều trị bệnh tim</td>
+                    <td>4</td>
+                    <td>🟢</td>
+                </tr>
+
+                <tr>
+                    <td>DER</td>
+                    <td>Da liễu</td>
+                    <td>Khám và điều trị bệnh da</td>
+                    <td>3</td>
+                    <td>🟢</td>
+                </tr>
+
+                <tr>
+                    <td>PED</td>
+                    <td>Nhi khoa</td>
+                    <td>Chăm sóc sức khỏe trẻ em</td>
+                    <td>4</td>
+                    <td>🟢</td>
+                </tr>
+
+                <tr>
+                    <td>ENT</td>
+                    <td>Tai Mũi Họng</td>
+                    <td>Điều trị bệnh tai, mũi, họng</td>
+                    <td>3</td>
+                    <td>🟢</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========== STAFF LOGIN ========== -->
+<section id="staffLogin" class="page">
+
+    <div class="form-container">
+
+        <h2>Quản trị hệ thống</h2>
+
+        <p class="form-description">
+            Đăng nhập dành cho Admin và Bác sĩ
+        </p>
+
+        <form onsubmit="staffLogin(event)">
+
+            <label>Tài khoản</label>
+
+            <input
+                type="text"
+                id="staffUsername"
+                placeholder="admin / doctor"
+                required
+            >
+
+            <label>Mật khẩu</label>
+
+            <input
+                type="password"
+                id="staffPassword"
+                placeholder="123456"
+                required
+            >
+
+            <label>Vai trò</label>
+
+            <select id="staffRole">
+
+                <option value="admin">
+                    Admin
+                </option>
+
+                <option value="doctor">
+                    Bác sĩ
+                </option>
+
+            </select>
+
+            <button class="primary-btn full">
+                Đăng nhập
+            </button>
+
+        </form>
+
+        <div class="demo-account">
+
+            <b>Tài khoản demo:</b>
+
+            <p>Admin: admin / 123456</p>
+
+            <p>Bác sĩ: doctor / 123456</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========== ADMIN DASHBOARD ========== -->
+<section id="admin" class="page">
+
+    <div class="content-container">
+
+        <h2>Quản trị hệ thống</h2>
+
+        <p>
+            Xin chào Admin. Đây là trang quản lý UCare.
+        </p>
+
+        <div class="dashboard-grid">
+
+            <div class="dashboard-card">
+                <h3>👥</h3>
+                <h3>Người dùng</h3>
+                <strong>120</strong>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>👨‍⚕️</h3>
+                <h3>Bác sĩ</h3>
+                <strong>24</strong>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>📅</h3>
+                <h3>Lịch khám</h3>
+                <strong>86</strong>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>💰</h3>
+                <h3>Thanh toán</h3>
+                <strong>52</strong>
+            </div>
+
+        </div>
+
+
+        <h2 class="sub-title">
+            Quản lý người dùng & bác sĩ
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Vai trò</th>
+                    <th>Trạng thái</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Nguyễn Minh Anh</td>
+                    <td>minhanh@UCare.vn</td>
+                    <td>Bác sĩ</td>
+                    <td>🟢 Đang hoạt động</td>
+                </tr>
+
+                <tr>
+                    <td>Trần Hoàng Nam</td>
+                    <td>nam@UCare.vn</td>
+                    <td>Bác sĩ</td>
+                    <td>🟢 Đang hoạt động</td>
+                </tr>
+
+                <tr>
+                    <td>Nguyễn Văn A</td>
+                    <td>user@gmail.com</td>
+                    <td>Bệnh nhân</td>
+                    <td>🟢 Đang hoạt động</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========== DOCTOR DASHBOARD ========== -->
+<section id="doctor" class="page">
+
+    <div class="content-container">
+
+        <h2>Trang làm việc của bác sĩ</h2>
+
+        <p>
+            Xin chào bác sĩ.
+        </p>
+
+        <div class="dashboard-grid">
+
+            <div class="dashboard-card">
+
+                <h3>📅</h3>
+
+                <h3>Lịch khám hôm nay</h3>
+
+                <strong>8</strong>
+
+            </div>
+
+            <div class="dashboard-card">
+
+                <h3>👥</h3>
+
+                <h3>Bệnh nhân</h3>
+
+                <strong>32</strong>
+
+            </div>
+
+            <div class="dashboard-card">
+
+                <h3>⏳</h3>
+
+                <h3>Đang chờ</h3>
+
+                <strong>4</strong>
+
+            </div>
+
+        </div>
+
+
+        <h2 class="sub-title">
+            Lịch khám
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Mã lịch</th>
+                    <th>Bệnh nhân</th>
+                    <th>Ngày</th>
+                    <th>Giờ</th>
+                    <th>Trạng thái</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>APP2506001</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>02/06/2025</td>
+                    <td>09:00</td>
+                    <td>🟡 Chờ khám</td>
+                </tr>
+
+                <tr>
+                    <td>APP2506002</td>
+                    <td>Trần Thị B</td>
+                    <td>02/06/2025</td>
+                    <td>10:30</td>
+                    <td>🟢 Đã khám</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+            <h3>🏥 UCare</h3>
+
+            <p>
+                Hệ thống quản lý và đặt lịch
+                khám bệnh trực tuyến.
+            </p>
+        </div>
+
+        <div>
+            <h3>Liên hệ</h3>
+
+            <p>📞 1900 1234</p>
+
+            <p>📧 support@UCare.vn</p>
+
+        </div>
+
+        <div>
+
+            <h3>Địa chỉ</h3>
+
+            <p>
+                TP. Hồ Chí Minh, Việt Nam
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 UCare. All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
