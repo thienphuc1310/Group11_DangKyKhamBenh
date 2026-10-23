@@ -1,0 +1,150 @@
+/* Chữ và ảnh trang trí dùng chung */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+small {
+    font-size: 1em;
+}
+
+img.ui-icon {
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    max-width: none;
+    flex-shrink: 0;
+    vertical-align: -0.15em;
+    object-fit: contain;
+}
+
+img.ui-logo {
+    display: block;
+    width: 34px;
+    height: 34px;
+    max-width: none;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+img.ui-success {
+    display: block;
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 22px;
+    object-fit: contain;
+}
+
+img.ui-step {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
+.main, .doctor-content {
+    min-width: 0;
+}
+
+@media (max-width: 600px) {
+    .detail-grid,
+    .detail-card .detail-grid,
+    .dd-box .detail-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Khung tóm tắt dùng chung trong hồ sơ bệnh án */
+.clinical-summary-card {
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.clinical-summary-card .clinical-summary-heading {
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e5ecf5;
+}
+
+.clinical-summary-card .clinical-summary-heading h2 {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.4;
+}
+
+.clinical-summary-card .clinical-summary-heading p {
+    margin: 8px 0 0;
+    color: #71839d;
+    overflow-wrap: anywhere;
+}
+
+.clinical-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 32px;
+    margin: 0;
+}
+
+.clinical-summary-grid > div {
+    min-width: 0;
+}
+
+.clinical-summary-grid .clinical-summary-wide {
+    grid-column: 1 / -1;
+}
+
+.clinical-summary-grid dt {
+    margin: 0 0 8px;
+    color: #71839d;
+    font-weight: 600;
+}
+
+.clinical-summary-grid dd {
+    margin: 0;
+    line-height: 1.7;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.clinical-summary-card .table-scroll table {
+    min-width: 850px;
+}
+
+.clinical-summary-note {
+    margin-top: 20px;
+    padding: 18px;
+    border: 1px solid #e5ecf5;
+    border-radius: 8px;
+    background: #f8faff;
+}
+
+.clinical-summary-note strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.clinical-summary-note p {
+    margin: 0;
+    line-height: 1.7;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 650px) {
+    .clinical-summary-card {
+        padding: 20px;
+    }
+
+    .clinical-summary-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+}

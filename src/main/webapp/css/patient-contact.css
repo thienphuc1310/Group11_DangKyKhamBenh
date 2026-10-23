@@ -1,0 +1,137 @@
+.patient-contact .contact-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.patient-contact .contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: 28px;
+}
+
+.patient-contact .contact-intro,
+.patient-contact .contact-form {
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    padding: 30px;
+    border: 1px solid #e1eaf5;
+    border-radius: 16px;
+    background: #fff;
+    text-align: left;
+}
+
+.patient-contact .contact-intro {
+    background: #e0f0ff url('../images/backgrounds/contact-introduction.png') center / cover no-repeat;
+}
+
+.patient-contact .contact-layout h2 {
+    margin: 0 0 10px;
+    color: #173657;
+    font-size: 23px;
+}
+
+.patient-contact .contact-layout p {
+    margin: 0;
+    color: #71839b;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.patient-contact .contact-details {
+    display: grid;
+    gap: 22px;
+    margin: 28px 0;
+    padding: 24px 0;
+    border-top: 1px solid #d8e6f7;
+    border-bottom: 1px solid #d8e6f7;
+}
+
+.patient-contact .contact-details dt {
+    margin-bottom: 6px;
+    color: #71839b;
+    font-size: 18px;
+}
+
+.patient-contact .contact-details dd {
+    margin: 0;
+    color: #173657;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+.patient-contact .contact-form {
+    gap: 22px;
+}
+
+.patient-contact .contact-row {
+    gap: 22px;
+}
+
+.patient-contact .contact-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.patient-contact .contact-form-group label {
+    color: #173657;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.patient-contact .contact-form-group input,
+.patient-contact .contact-form-group textarea {
+    padding: 11px 13px;
+    border: 1px solid #d8e3f0;
+    border-radius: 8px;
+    color: #173657;
+    font: inherit;
+    font-size: 18px;
+}
+
+.patient-contact .contact-form-group input:focus,
+.patient-contact .contact-form-group textarea:focus {
+    outline: 2px solid #dceaff;
+    border-color: #0866e9;
+    box-shadow: none;
+}
+
+.patient-contact .contact-submit-wrapper {
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid #e1eaf5;
+}
+
+.patient-contact .contact-submit-button {
+    min-height: 44px;
+    min-width: 140px;
+    padding: 11px 20px;
+    border-radius: 8px;
+    background: #0866e9;
+    font: inherit;
+    font-weight: 600;
+}
+
+.patient-contact .contact-submit-button:hover {
+    background: #0758c7;
+}
+
+@media (max-width: 900px) {
+    .patient-contact .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .patient-contact .contact-intro,
+    .patient-contact .contact-form {
+        padding: 22px;
+    }
+
+    .patient-contact .contact-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="
+                 http://xmlns.jcp.org/xml/ns/persistence
+                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <persistence-unit name="ClinicPU"
+                      transaction-type="RESOURCE_LOCAL">
+
+        <provider>
+            org.hibernate.jpa.HibernatePersistenceProvider
+        </provider>
+
+        <class>murach.business.User</class>
+        <class>murach.business.Account</class>
+        <class>murach.business.Patient</class>
+        <class>murach.business.Specialty</class>
+        <class>murach.business.Doctor</class>
+        <class>murach.business.DoctorSchedule</class>
+        <class>murach.business.DoctorLeaveRequest</class>
+        <class>murach.business.Notification</class>
+        <class>murach.business.AppointmentSlot</class>
+        <class>murach.business.Admin</class>
+        <class>murach.business.Appointment</class>
+        <class>murach.business.Payment</class>
+        <class>murach.business.MedicalRecord</class>
+        <class>murach.business.ServicePrice</class>
+
+        <!-- Nhân sự và phân loại chuyên môn -->
+        <class>murach.business.Staff</class>
+        <class>murach.business.Nurse</class>
+        <class>murach.business.Technician</class>
+        <class>murach.business.Pharmacist</class>
+        <class>murach.business.NurseSchedule</class>
+        <class>murach.business.TechnicianSchedule</class>
+        <class>murach.business.StaffSchedule</class>
+
+        <!-- Tiếp nhận, số thứ tự và đánh giá ban đầu -->
+        <class>murach.business.MedicalEncounter</class>
+        <class>murach.business.QueueTicket</class>
+        <class>murach.business.InitialAssessment</class>
+
+        <!-- Chỉ định cận lâm sàng, mẫu và kết quả -->
+        <class>murach.business.DiagnosticService</class>
+        <class>murach.business.DiagnosticOrder</class>
+        <class>murach.business.DiagnosticOrderItem</class>
+        <class>murach.business.Specimen</class>
+        <class>murach.business.DiagnosticItemSpecimen</class>
+        <class>murach.business.DiagnosticResult</class>
+        <class>murach.business.ResultFile</class>
+
+        <!-- Danh mục thuốc, đơn thuốc, kho và cấp thuốc -->
+        <class>murach.business.Medicine</class>
+        <class>murach.business.Prescription</class>
+        <class>murach.business.PrescriptionItem</class>
+        <class>murach.business.StockMovement</class>
+        <class>murach.business.Dispensation</class>
+
+        <!-- Hóa đơn và các dòng chi phí -->
+        <class>murach.business.Invoice</class>
+        <class>murach.business.InvoiceItem</class>
+
+        <!--Chỉ quản lý những entity được liệt kê bằng class-->
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver"
+                      value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:sqlserver://localhost:1433;databaseName=QuanLyDangKyKhamBenh4;encrypt=true;trustServerCertificate=true"/>
+
+            <property name="javax.persistence.jdbc.user"
+                      value="sa"/>
+
+            <property name="javax.persistence.jdbc.password"
+                      value="thienphuc1310"/>
+
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.SQLServer2012Dialect"/>
+
+            <property name="hibernate.hbm2ddl.auto"
+                      value="update"/>
+
+            <property name="hibernate.show_sql"
+                      value="true"/>
+
+            <property name="hibernate.format_sql"
+                      value="true"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

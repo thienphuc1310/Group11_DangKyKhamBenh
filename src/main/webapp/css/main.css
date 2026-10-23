@@ -1,14 +1,410 @@
-:root{--primary:#1677ff;--primary2:#0d5ed7;--dark:#10233f;--text:#334155;--muted:#718096;--bg:#f5f9ff;--white:#fff;--border:#e5edf7}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-a{text-decoration:none;color:inherit}.container{width:min(1100px,92%);margin:auto}
-header{background:#fff;border-bottom:1px solid var(--border)}.nav{height:70px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:28px;font-weight:800;color:var(--primary)}.menu{display:flex;gap:24px}.menu a{font-weight:600;color:var(--dark)}
-.hero{padding:80px 0;background:linear-gradient(135deg,#eaf4ff,#fff)}.hero h1{font-size:46px;color:var(--dark);margin-bottom:15px}.hero p{font-size:18px;color:var(--muted);margin-bottom:28px}
-.btn{display:inline-block;border:0;border-radius:10px;padding:12px 22px;background:var(--primary);color:#fff;font-weight:700;cursor:pointer}.btn-outline{background:#fff;color:var(--primary);border:1px solid var(--primary)}
-.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px;box-shadow:0 8px 25px rgba(20,70,130,.06)}
-.section{padding:55px 0}.section h2{color:var(--dark);margin-bottom:25px}.form-card{max-width:650px;margin:45px auto}
-.form-group{margin-bottom:18px}label{display:block;font-weight:600;margin-bottom:7px}
-input,select,textarea{width:100%;padding:12px;border:1px solid #d7e2ef;border-radius:9px;font-size:15px}textarea{min-height:110px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-footer{margin-top:50px;background:var(--dark);color:#fff;padding:35px 0;text-align:center}
+/* ===== 1. Thiết lập chung cho nội dung main ===== */
+main,
+main * {
+    box-sizing: border-box;
+}
+
+main {
+    background-color: #eef5ff;
+    color: #15345b;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+main h1,
+main h2,
+main h3,
+main p {
+    margin-top: 0;
+}
+
+/* ===== 2. Chia hai cột: giới thiệu và form ===== */
+.dangkykham-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: 32px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.dangkykham-layout > section {
+    min-width: 0;
+}
+
+/* ===== 3. Phần giới thiệu bên trái ===== */
+.dangkykham-layout > section:first-child {
+    padding: 24px 8px;
+}
+
+.dangkykham-layout > section:first-child h1 {
+    margin-bottom: 16px;
+    font-size: 36px;
+    line-height: 1.3;
+}
+
+.dangkykham-layout > section:first-child > p {
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+/* Cụm thông tin bệnh viện */
+.dangkykham-layout > section:first-child > div {
+    padding-top: 24px;
+    border-top: 1px solid #d5e2f2;
+}
+
+.dangkykham-layout > section:first-child h2 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.dangkykham-layout > section:first-child > div p {
+    margin-bottom: 16px;
+}
+
+/* ===== 4. Khung đăng ký bên phải ===== */
+.dangkykham-layout > section:nth-child(2) {
+    padding: 28px;
+    border: 1px solid #e1e8f0;
+    border-radius: 14px;
+
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(21, 52, 91, 0.1);
+}
+
+.dangkykham-layout > section:nth-child(2) > h2 {
+    margin-bottom: 6px;
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+.dangkykham-layout > section:nth-child(2) > p {
+    margin-bottom: 24px;
+    color: #718096;
+}
+
+/* ===== 5. Chia các trường trong form thành hai cột ===== */
+.dangkykham-layout form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.dangkykham-layout .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.dangkykham-layout .form-group > label {
+    color: #172b46;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* ===== 6. Ô nhập, ô chọn và textarea ===== */
+.dangkykham-layout .form-group input,
+.dangkykham-layout .form-group select,
+.dangkykham-layout .form-group textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+
+    background-color: #ffffff;
+    color: #172b46;
+    font: inherit;
+}
+
+.dangkykham-layout .form-group input,
+.dangkykham-layout .form-group select {
+    min-height: 44px;
+}
+
+.dangkykham-layout .form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.dangkykham-layout .form-group textarea::placeholder {
+    color: #7b8798;
+}
+
+/* Viền khi chọn vào ô */
+.dangkykham-layout .form-group input:focus,
+.dangkykham-layout .form-group select:focus,
+.dangkykham-layout .form-group textarea:focus {
+    outline: 2px solid #0959df;
+    outline-offset: 2px;
+}
+
+/* ===== 7. Phí khám: nằm cạnh ngày khám ===== */
+.dangkykham-layout form > p:first-of-type {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin: 0;
+    color: #172b46;
+    font-weight: 700;
+}
+
+.dangkykham-layout .exam-fee {
+    display: block;
+    min-height: 44px;
+    padding: 11px 12px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+
+    background-color: #f3f4f6;
+    font-weight: 400;
+}
+
+/* ===== 8. Nhóm chọn giờ chiếm cả hàng ===== */
+.dangkykham-layout .time-slots {
+    grid-column: 1 / -1;
+
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.dangkykham-layout .time-slots legend {
+    margin-bottom: 10px;
+    padding: 0;
+
+    color: #172b46;
+    font-weight: 700;
+}
+
+/* Ẩn hình tròn radio nhưng vẫn dùng được bàn phím */
+.dangkykham-layout .time-slots input[type="radio"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* Biến label thành ô chọn giờ */
+.dangkykham-layout .time-slots label {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    padding: 10px 16px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+
+    background-color: #ffffff;
+    color: #172b46;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.dangkykham-layout .time-slots label:hover {
+    border-color: #0959df;
+    background-color: #eef5ff;
+}
+
+/* Ô giờ đang được chọn */
+.dangkykham-layout .time-slots input:checked + label {
+    border-color: #0959df;
+    background-color: #0959df;
+    color: #ffffff;
+}
+
+/* Hiển thị vị trí khi dùng phím Tab */
+.dangkykham-layout .time-slots input:focus-visible + label {
+    outline: 2px solid #0959df;
+    outline-offset: 3px;
+}
+
+/* ===== 9. Lý do khám chiếm cả hàng ===== */
+/* Trong HTML hiện tại, nhóm lý do nằm ngay sau fieldset */
+.dangkykham-layout .time-slots + .form-group {
+    grid-column: 1 / -1;
+}
+
+/* ===== 10. Nút tiếp tục ===== */
+.dangkykham-layout form > button[type="submit"] {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    padding: 13px 20px;
+    border: 0;
+    border-radius: 7px;
+
+    background-color: #0959df;
+    color: #ffffff;
+    font: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.dangkykham-layout form > button[type="submit"]:hover {
+    background-color: #0848b5;
+}
+
+.dangkykham-layout form > button[type="submit"]:focus-visible {
+    outline: 2px solid #0959df;
+    outline-offset: 3px;
+}
+
+/* Ghi chú dưới nút */
+.dangkykham-layout form > p:last-child {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    color: #718096;
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* ===== 11. Hướng dẫn nằm dưới cả hai cột ===== */
+.dangkykham-layout > .booking-guide {
+    grid-column: 1 / -1;
+
+    padding: 28px;
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+.booking-guide > h2 {
+    margin-bottom: 28px;
+    font-size: 24px;
+}
+
+/* Ba bước nằm ngang */
+.booking-guide > ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: guide-step;
+}
+
+.booking-guide .guide-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+
+    counter-increment: guide-step;
+}
+
+
+.booking-guide .guide-step img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Hiện tại src đang trống nên ẩn ảnh */
+.booking-guide .guide-step img[src=""],
+.booking-guide .guide-step img:not([src]) {
+    display: none;
+}
+
+.booking-guide .guide-step > div {
+    min-width: 0;
+}
+
+.booking-guide .guide-step h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.booking-guide .guide-step p {
+    margin-bottom: 0;
+    color: #52657d;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+/* ===== 12. Tablet: chuyển bố cục chính thành một cột ===== */
+@media (max-width: 900px) {
+    .dangkykham-layout {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 24px;
+    }
+
+    .dangkykham-layout > section:first-child {
+        padding: 8px 0;
+    }
+
+    .booking-guide > ol {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+}
+
+/* ===== 13. Điện thoại: các trường form xếp dọc ===== */
+@media (max-width: 560px) {
+    .dangkykham-layout {
+        gap: 24px;
+        padding: 16px;
+    }
+
+    .dangkykham-layout > section:first-child h1 {
+        font-size: 28px;
+    }
+
+    .dangkykham-layout > section:nth-child(2),
+    .dangkykham-layout > .booking-guide {
+        padding: 20px;
+    }
+
+    .dangkykham-layout > section:nth-child(2) > h2 {
+        font-size: 24px;
+    }
+
+    .dangkykham-layout form {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.dangkykham-layout .time-slots input:disabled + label {
+    opacity: 0.45;
+    cursor: not-allowed;
+    background: #f1f5f9;
+    color: #94a3b8;
+    border-color: #e2e8f0;
+}
+
+.dangkykham-layout .time-slots input:disabled + label:hover {
+    border-color: #e2e8f0;
+    background: #f1f5f9;
+}
+
+.dangkykham-layout .booking-message {
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    background: #eff6ff;
+    color: #1e40af;
+}
+
+.dangkykham-layout .booking-message-success {
+    border-color: #bbf7d0;
+    background: #f0fdf4;
+    color: #166534;
+}

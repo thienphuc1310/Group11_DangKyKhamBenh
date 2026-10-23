@@ -1,0 +1,121 @@
+.clinical-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:16px 0}
+.clinical-section{margin-top:20px}.clinical-result{border:1px solid #dbe5f2;border-radius:10px;padding:16px;margin:12px 0;background:#fff}
+.clinical-success{color:#16814a;font-weight:600}.clinical-text{white-space:pre-wrap;overflow-wrap:anywhere}.clinical-file{display:block;margin:8px 0;overflow-wrap:anywhere}
+.prescription-line{display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:12px;padding:16px 0;border-bottom:1px solid #dbe5f2;margin-bottom:16px}
+.clinical-section table{width:100%;border-collapse:collapse}.clinical-section th,.clinical-section td{padding:12px;border-bottom:1px solid #dbe5f2;text-align:left}
+.clinical-section input,.clinical-section select,.clinical-section textarea{max-width:100%}
+@media(max-width:900px){.prescription-line{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.prescription-line{grid-template-columns:1fr}.clinical-actions>*{width:100%}}
+.work-week { width: 100%; min-width: 840px; table-layout: fixed; border-collapse: collapse; }
+.work-week th, .work-week td { border: 1px solid #dbe4f0; padding: 12px; text-align: left; vertical-align: top; }
+.work-week th { background: #f4f8ff; }
+.work-week td { height: 150px; }
+.work-week .work-today { background: #eef6ff; }
+.work-shift { padding: 10px; margin-bottom: 8px; background: #e5f0ff; border-radius: 6px; }
+
+/* Lịch điều dưỡng, chuyên viên và tiếp tân dùng bảng tuần của bác sĩ, không có giới hạn bệnh nhân. */
+.staff-schedule-date { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 0; }
+.staff-schedule-date input { width: auto; }
+.staff-schedule-toolbar .btn:hover { background: #eef5ff; text-decoration: none; }
+.staff-schedule-table .shift-card + .shift-card { margin-top: 12px; }
+
+/* Khoảng đệm dùng chung cho nội dung khám, chỉ định, kết quả và đơn thuốc. */
+.clinical-card-body { padding: 24px; }
+.clinical-workspace > .doctor-card { margin-bottom: 20px; }
+.clinical-help { margin: 0 0 18px; color: #71839d; font-size: 18px; line-height: 1.6; }
+.clinical-patient-strip { display: flex; align-items: center; gap: 24px 48px; flex-wrap: wrap; }
+.clinical-patient-strip h2 { margin-bottom: 0; }
+.clinical-patient-strip small, .clinical-assessment-grid small, .clinical-record-grid small { display: block; margin: 0 0 6px; }
+.clinical-assessment-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 24px; }
+.clinical-assessment-grid p, .clinical-record-grid p { margin: 0; }
+.clinical-assessment-grid .clinical-wide { grid-column: 1 / -1; }
+.clinical-exam-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; }
+.clinical-exam-grid .form-group { margin-bottom: 0; }
+.clinical-exam-form textarea { min-height: 120px; }
+.clinical-form-footer { margin-top: 22px; padding-top: 20px; border-top: 1px solid #e5ecf5; }
+.clinical-form-footer .clinical-help { margin: 12px 0 0; }
+.clinical-form-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.diagnostic-order-form > .clinical-card-body > .form-group:last-child { margin-bottom: 0; }
+.diagnostic-order-form [hidden] { display: none !important; }
+.diagnostic-order-form > .clinical-form-footer { margin-top: 0; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+.diagnostic-order-form > .clinical-form-footer .clinical-help { margin: 0; max-width: 560px; }
+.diagnostic-service-table { min-width: 980px; }
+.diagnostic-service-table td { vertical-align: top; }
+.diagnostic-service-table input[type="checkbox"] { width: 18px; height: 18px; accent-color: #0866e9; cursor: pointer; }
+.diagnostic-service-table input:disabled { cursor: not-allowed; }
+.diagnostic-service-table label { cursor: pointer; }
+.diagnostic-service-table td:last-child { min-width: 230px; max-width: 300px; }
+.diagnostic-service-table small { line-height: 1.5; }
+.diagnostic-list-toolbar { padding: 0 24px 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.diagnostic-list-toolbar h3 { margin: 0; font-size: 18px; }
+.diagnostic-selection { padding: 20px 24px; border-top: 1px solid #e5ecf5; background: #f4f8ff; }
+.diagnostic-selection-heading { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.diagnostic-selected-list { margin: 12px 0 0; padding-left: 20px; line-height: 1.8; overflow-wrap: anywhere; }
+.diagnostic-selected-list:empty { display: none; }
+.diagnostic-selection .clinical-help { margin: 10px 0 0; }
+.diagnostic-service-table .diagnostic-selected { background: #eef6ff; }
+.diagnostic-payment-note { padding: 14px 16px; margin: 12px 0 20px; border: 1px solid #ffe1a6; border-radius: 8px; background: #fff8e8; color: #79520b; line-height: 1.6; }
+.diagnostic-payment-note p { margin: 0; }
+.clinical-unavailable { background: #fbfcfe; }
+.clinical-unavailable label { cursor: default; }
+.clinical-money { white-space: nowrap; }
+.prescription-advice { margin-top: 22px; }
+.prescription-medicine-field { grid-column: span 2; }
+.medicine-summary { font-size: 18px; color: #71839d; }
+@media (max-width: 550px) { .prescription-medicine-field { grid-column: 1 / -1; } }
+
+/* Trang trả kết quả dùng cùng khung và khoảng đệm với chi tiết buổi khám. */
+.diagnostic-patient-heading { gap: 20px 32px; }
+.diagnostic-patient-heading > div { min-width: 0; overflow-wrap: anywhere; }
+.diagnostic-request-details { margin-top: 24px; padding-top: 22px; border-top: 1px solid #e5ecf5; }
+.diagnostic-result-fields textarea { min-height: 210px; }
+.diagnostic-upload-row { display: flex; gap: 18px; align-items: flex-end; flex-wrap: wrap; }
+.diagnostic-upload-row .form-group { flex: 1; min-width: 240px; margin: 0; }
+.diagnostic-upload-row button { flex-shrink: 0; }
+.diagnostic-attachment-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.diagnostic-attachment-heading h2 { margin: 0; }
+.diagnostic-file-list { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.diagnostic-file-link { display: flex; gap: 14px; align-items: center; margin: 0; padding: 14px 16px; border: 1px solid #dce5f0; border-radius: 8px; }
+.diagnostic-file-link:hover { background: #f4f8ff; text-decoration: none; }
+.diagnostic-file-type { display: grid; place-items: center; width: 42px; height: 46px; flex-shrink: 0; border-radius: 6px; background: #eef5ff; font-size: 18px; font-weight: 700; }
+.diagnostic-file-name { min-width: 0; overflow-wrap: anywhere; }
+.diagnostic-empty-note { margin: 0; padding: 18px; border: 1px dashed #dce5f0; border-radius: 8px; background: #fbfcfe; }
+@media (max-width: 850px) {
+    .clinical-exam-grid, .clinical-assessment-grid, .diagnostic-file-list { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 650px) {
+    .clinical-card-body { padding: 18px; }
+    .clinical-patient-strip { gap: 18px 24px; }
+    .diagnostic-list-toolbar { padding: 0 18px 18px; }
+    .diagnostic-selection { padding: 18px; }
+    .diagnostic-order-form > .clinical-form-footer { align-items: stretch; flex-direction: column; }
+    .clinical-form-actions { align-items: stretch; }
+    .clinical-form-actions > * { flex: 1; text-align: center; }
+    .diagnostic-upload-row .form-group { min-width: 100%; }
+    .diagnostic-upload-row button { width: 100%; }
+}
+
+/* Tiếp tân và điều dưỡng dùng chung nền, sidebar, bảng và nút của doctor.css. */
+.shift-card.shift-on-leave { background: #fff4df; color: #815400; border-left: 3px solid #e0aa37; }
+.leave-reason { max-width: 320px; overflow-wrap: anywhere; white-space: pre-wrap; }
+.doctor-table input[type="checkbox"] { width: 18px; height: 18px; padding: 0; accent-color: #0866e9; }
+.clinical-sidebar .doctor-logout { width: 100%; border: 0; }
+.care-filter { align-items: flex-end; }
+.care-filter .form-group { max-width: 260px; }
+.care-filter .search-field { max-width: none; }
+.care-table { min-width: 780px; }
+.care-table caption { padding: 16px; text-align: left; font-weight: 600; color: #173657; }
+.care-table .btn, .care-table button { white-space: nowrap; }
+.care-table .empty-state { padding: 36px 18px; }
+.care-assessing { background: #fff4df; color: #99620a; }
+.care-card-body { padding: 24px; }
+.care-assessment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+.care-assessment-grid .care-wide { grid-column: 1 / -1; }
+.care-assessment-grid textarea { min-height: 95px; }
+@media (max-width: 650px) {
+    .clinical-sidebar .doctor-sidebar-footer > form { min-width: 110px; }
+    .care-filter .form-group { max-width: none; min-width: 100%; }
+    .care-assessment-grid { grid-template-columns: minmax(0, 1fr); }
+    .care-assessment-grid .care-wide { grid-column: auto; }
+    .care-card-body { padding: 18px; }
+}

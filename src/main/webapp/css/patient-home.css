@@ -1,0 +1,370 @@
+/* Trang đặt khám */
+.patient-home-content {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 28px;
+}
+
+.home-booking-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.home-introduction {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 40px;
+    border-radius: 18px;
+    background: #e0f0ff url('../images/backgrounds/home-introduction.png') right top / cover no-repeat;
+}
+
+.home-greeting {
+    font-weight: 600;
+}
+
+.home-greeting p {
+    margin: 4px 0 0;
+    color: #617b98;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.patient-site .home-introduction h1 {
+    margin: 52px 0 24px;
+    font-size: clamp(36px, 4vw, 58px);
+    line-height: 1.15;
+    letter-spacing: -1.6px;
+    color: #11345c;
+}
+
+.home-intro-description {
+    max-width: 360px;
+    color: #526e8d;
+    font-size: 20px;
+}
+
+.home-doctor-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: start;
+    margin: 16px 0 50px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.home-hospital-info {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid #bdd8ef;
+}
+
+.home-hospital-info p {
+    margin: 3px 0 0;
+    color: #617b98;
+    font-size: 18px;
+}
+
+.home-brand-mark { display: block; width: 48px; height: 48px; flex-shrink: 0; }
+
+.home-booking-card {
+    margin: 0;
+    padding: 28px;
+}
+
+.patient-site .home-booking-card h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.home-booking-steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+    font-size: 18px;
+    color: #889bb3;
+}
+
+.home-booking-steps li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.home-booking-steps .active {
+    color: #0866e9;
+}
+
+.home-booking-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.home-booking-fields .patient-field:last-child {
+    grid-column: 1 / -1;
+}
+
+.home-time-slots {
+    min-width: 0;
+    margin: 20px 0;
+    padding: 0;
+    border: 0;
+}
+
+.home-time-slots legend {
+    padding: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#time-slot-list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#time-slot-list p {
+    margin: 0;
+}
+
+#time-slot-list input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+#time-slot-list label {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 9px 12px;
+    border: 1px solid #d8e3f0;
+    border-radius: 8px;
+    background: #fff;
+    color: #425b78;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#time-slot-list input:checked + label {
+    background: #0866e9;
+    border-color: #0866e9;
+    color: #fff;
+}
+
+#time-slot-list input:focus-visible + label {
+    outline: 3px solid #92bcff;
+    outline-offset: 2px;
+}
+
+#time-slot-list input:disabled + label {
+    background: #f1f4f8;
+    color: #a0aebf;
+    cursor: not-allowed;
+}
+
+.home-booking-fee {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 16px;
+    padding-top: 18px;
+    border-top: 1px solid #e1eaf5;
+}
+
+.home-booking-fee strong {
+    color: #0866e9;
+    font-size: 22px;
+}
+
+.patient-site .home-booking-submit {
+    width: 100%;
+}
+
+.patient-site .home-booking-submit:disabled {
+    background: #a0b7d5;
+    border-color: #a0b7d5;
+    cursor: not-allowed;
+}
+
+/* Truy cập nhanh và chuyên khoa */
+.home-quick-links {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 24px 0;
+}
+
+.home-quick-links a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 20px;
+    border: 1px solid #e1eaf5;
+    border-radius: 14px;
+    background: #fff;
+    color: #173657;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.home-quick-links a:hover {
+    border-color: #bbd3f8;
+    text-decoration: none;
+}
+
+.home-quick-links a > span {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 11px;
+    background: #eaf3ff;
+    color: #0866e9;
+}
+
+.home-quick-links a:nth-child(even) > span {
+    color: #07838d;
+    background: #e9f8f6;
+}
+
+.home-quick-links b {
+    margin-left: auto;
+    color: #71839b;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.home-specialty-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.home-specialty-list a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px;
+    border: 1px solid #e1eaf5;
+    border-radius: 10px;
+    color: #173657;
+    font-size: 18px;
+}
+
+.home-specialty-list a:hover {
+    background: #f7faff;
+    text-decoration: none;
+}
+
+.home-specialty-list a > :last-child {
+    margin-left: auto;
+}
+
+.home-guide ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.home-guide li {
+    display: flex;
+    gap: 14px;
+}
+
+.home-guide h3 {
+    margin: 0 0 5px;
+}
+
+.home-guide p {
+    margin: 0;
+    color: #71839b;
+    font-size: 18px;
+}
+
+.patient-home .site-footer {
+    background: #fff;
+    border-top: 1px solid #e1eaf5;
+}
+
+@media (max-width: 1100px) {
+    .home-quick-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-introduction {
+        padding: 28px;
+    }
+
+    .home-specialty-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+}
+
+@media (max-width: 800px) {
+    .home-booking-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-introduction {
+        min-height: 350px;
+    }
+
+    .patient-site .home-introduction h1 {
+        margin-top: 28px;
+    }
+
+    .home-doctor-link {
+        margin-bottom: 24px;
+    }
+
+    .home-guide ol {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+
+}
+
+@media (max-width: 500px) {
+    .patient-home-content {
+        padding: 18px 14px;
+    }
+
+    .home-booking-fields, .home-quick-links, .home-specialty-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-booking-fields .patient-field:last-child {
+        grid-column: auto;
+    }
+
+    .home-booking-card {
+        padding: 22px;
+    }
+
+    .home-booking-steps {
+        gap: 6px;
+        font-size: 18px;
+    }
+
+
+}

@@ -1,0 +1,317 @@
+/* Bố cục chung */
+.patient-public {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.patient-public > main {
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    padding: 36px 24px 56px;
+    font: inherit;
+}
+
+.patient-public .doctors-container,
+.patient-public .specialties-container,
+.patient-public .news-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.patient-public .public-heading {
+    margin-bottom: 28px;
+    padding: 30px;
+    border: 1px solid #dae8fc;
+    border-radius: 16px;
+    background: #e2eeff url('../images/backgrounds/public-heading.png') center / cover no-repeat;
+}
+
+.patient-public .public-eyebrow {
+    color: #0866e9;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.patient-public .public-heading h1 {
+    margin: 10px 0;
+    color: #173657;
+    text-align: left;
+    font-size: 33px;
+    line-height: 1.3;
+}
+
+.patient-public .public-heading p {
+    margin: 0;
+    color: #71839b;
+    font-size: 18px;
+}
+
+/* Bác sĩ */
+.patient-public .doctors-filter {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.5fr) 1fr 1fr auto;
+    gap: 14px;
+    margin-bottom: 22px;
+    padding: 22px;
+    background: #fff;
+    border: 1px solid #e1eaf5;
+    border-radius: 16px;
+}
+
+.patient-public .doctors-search,
+.patient-public .doctors-filter select {
+    width: 100%;
+    min-width: 0;
+}
+
+.patient-public .doctors-filter input,
+.patient-public .doctors-filter select {
+    height: 44px;
+    padding: 10px 13px;
+    border: 1px solid #d8e3f0;
+    border-radius: 8px;
+    color: #173657;
+    box-shadow: none;
+    font: inherit;
+    font-size: 18px;
+}
+
+.patient-public .doctors-count {
+    margin: 0 0 18px;
+    color: #71839b;
+    font-size: 18px;
+    text-align: left;
+}
+
+.patient-public .doctors-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.patient-public .doctor-card {
+    padding: 26px;
+    border: 1px solid #e1eaf5;
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+.patient-public .doctor-avatar {
+    width: 68px;
+    height: 68px;
+    border: 0;
+    border-radius: 50%;
+    background: #eaf2ff;
+    color: #0866e9;
+    font-size: 29px;
+}
+
+.patient-public .doctor-text {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.patient-public .doctor-degree {
+    color: #71839b;
+    font-size: 18px;
+}
+
+.patient-public .doctor-name {
+    margin: 3px 0 6px;
+    font-size: 20px;
+}
+
+.patient-public .doctor-specialty {
+    color: #0866e9;
+    font-size: 18px;
+}
+
+.patient-public .public-doctor-detail {
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid #e1eaf5;
+    font-size: 18px;
+}
+
+.patient-public .public-doctor-detail summary {
+    color: #0866e9;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.patient-public .public-doctor-detail p {
+    margin: 12px 0 0;
+    color: #71839b;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+/* Chuyên khoa */
+.patient-public .specialties-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.patient-public .specialty-card {
+    align-items: flex-start;
+    padding: 26px;
+    border: 1px solid #e1eaf5;
+    border-radius: 16px;
+    box-shadow: none;
+    text-align: left;
+}
+
+.patient-public .specialty-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 0 20px;
+    padding: 8px;
+    border-radius: 12px;
+    background: #eef5ff;
+}
+
+.patient-public .specialty-card h2 {
+    margin: 0 0 10px;
+    font-size: 19px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.patient-public .public-specialty-description {
+    margin: 0 0 22px;
+    color: #71839b;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+.patient-public .specialty-detail {
+    color: #0866e9;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.patient-public .public-empty,
+.patient-public .doctors-empty {
+    grid-column: 1 / -1;
+    padding: 40px 24px;
+    border: 1px solid #e1eaf5;
+    border-radius: 16px;
+    background: #fff;
+    color: #71839b;
+    text-align: center;
+}
+
+/* Tin tức */
+.patient-public .featured-news,
+.patient-public .news-card,
+.patient-public .news-detail {
+    border: 1px solid #e1eaf5;
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+.patient-public .featured-content {
+    padding: 32px;
+}
+
+.patient-public .featured-content h2 {
+    margin: 14px 0;
+    font-size: 27px;
+    line-height: 1.45;
+}
+
+.patient-public .featured-content p,
+.patient-public .news-card p {
+    color: #71839b;
+    line-height: 1.8;
+}
+
+.patient-public .news-source-badge {
+    color: #0866e9;
+    background: #eef5ff;
+}
+
+.patient-public .btn-detail {
+    padding: 11px 18px;
+    border-radius: 8px;
+    background: #0866e9;
+    color: #fff;
+    box-shadow: none;
+}
+
+.patient-public .btn-detail:hover {
+    color: #fff;
+    background: #0758c7;
+}
+
+.patient-public .news-card:hover {
+    transform: none;
+    box-shadow: 0 6px 22px #1736570a;
+}
+
+.patient-public .news-detail {
+    padding: 36px;
+    overflow-wrap: anywhere;
+}
+
+.patient-public .news-detail h1 {
+    font-size: 31px;
+    color: #173657;
+}
+
+.patient-public .news-detail h2 {
+    font-size: 23px;
+}
+
+.patient-public .detail-meta {
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1000px) {
+    .patient-public .doctors-grid,
+    .patient-public .specialties-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .patient-public .doctors-filter {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .patient-public > main {
+        padding: 24px 16px 36px;
+    }
+
+    .patient-public .public-heading,
+    .patient-public .doctor-card,
+    .patient-public .specialty-card,
+    .patient-public .featured-content,
+    .patient-public .news-card-body,
+    .patient-public .news-detail {
+        padding: 22px;
+    }
+
+    .patient-public .public-heading h1,
+    .patient-public .news-detail h1 {
+        font-size: 27px;
+    }
+
+    .patient-public .doctors-filter,
+    .patient-public .doctors-grid,
+    .patient-public .specialties-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .patient-public .detail-page {
+        width: 100%;
+    }
+
+    .patient-public .featured-content h2 {
+        font-size: 23px;
+    }
+}

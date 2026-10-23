@@ -1,0 +1,280 @@
+@import url('ui.css?v=20261023-9');
+/* 1. Thiết lập chung */
+.header-account { display: flex; align-items: center; gap: 16px; justify-self: end; }
+body {
+    margin: 0;
+}
+
+.site-header,
+.site-header * {
+    box-sizing: border-box;
+}
+
+/* 2. Thanh điều hướng */
+.site-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px max(24px, calc((100% - 1200px) / 2));
+    background: #ffffff;
+    border-top: 4px solid #0877bf;
+    border-bottom: 1px solid #e1edf5;
+    box-shadow: 0 4px 16px #15345b0a;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.site-header a {
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.site-header a:focus-visible {
+    outline: 3px solid #0877bf;
+    outline-offset: 4px;
+}
+
+/* 3. Tên thương hiệu */
+.site-header .header-logo {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    color: #0877bf;
+    font-size: 42px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+
+.header-logo img {
+    display: block;
+    width: auto;
+    height: 40px;
+}
+
+/* 4. Các mục menu */
+.header-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header-menu a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: #334d65;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.header-menu a:hover,
+.header-menu a.active,
+.header-menu a[aria-current="page"] {
+    background: #eaf6ff;
+    color: #0877bf;
+}
+
+/* 5. Đăng nhập và đăng ký */
+.header-actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.header-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 16px;
+    border: 1px solid #cde2f1;
+    border-radius: 8px;
+    color: #0877bf;
+    font-weight: 600;
+    text-align: center;
+}
+
+.header-actions a:hover {
+    background: #eaf6ff;
+    border-color: #0877bf;
+}
+
+.header-actions .register-link {
+    border-color: #0877bf;
+    background: #0877bf;
+    color: #ffffff;
+    box-shadow: 0 3px 8px #0877bf24;
+}
+
+.header-actions .register-link:hover {
+    border-color: #05639f;
+    background: #05639f;
+    color: #ffffff;
+}
+
+/* 6. Menu tài khoản sau khi đăng nhập */
+.member-account {
+    position: relative;
+    justify-self: end;
+}
+
+.member-account-toggle {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 10px;
+    border-radius: 9px;
+    color: #172b46;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.member-account-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.member-account-toggle:hover,
+.member-account[open] .member-account-toggle {
+    background: #eaf6ff;
+}
+
+.member-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #0877bf;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.member-dropdown {
+    position: absolute;
+    z-index: 30;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 230px;
+    margin: 0;
+    padding: 8px;
+    border: 1px solid #dbe7f1;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(21, 52, 91, 0.16);
+    list-style: none;
+}
+
+.member-dropdown a,
+.member-logout button {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #334d65;
+    font: inherit;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.member-dropdown a:hover,
+.member-logout button:hover {
+    background: #eaf6ff;
+    color: #0877bf;
+}
+
+.member-logout {
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid #e7eef5;
+}
+
+.member-logout form {
+    margin: 0;
+}
+
+/* 7. Máy tính bảng */
+@media (max-width: 1100px) {
+    .site-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .site-header nav {
+        order: 3;
+        width: 100%;
+        padding-top: 12px;
+        border-top: 1px solid #edf2f7;
+    }
+
+    .header-menu {
+        justify-content: center;
+    }
+}
+
+/* 8. Điện thoại */
+@media (max-width: 540px) {
+    .site-header {
+        justify-content: center;
+        padding: 16px;
+    }
+
+    .header-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .member-account {
+        width: 100%;
+    }
+
+    .member-account-toggle {
+        justify-content: center;
+    }
+
+    .member-dropdown {
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .header-actions a {
+        padding: 10px 12px;
+        font-size: 18px;
+    }
+
+    .header-menu {
+        gap: 4px;
+        text-align: center;
+    }
+
+    .header-menu a {
+        padding: 10px;
+        font-size: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-header a {
+        transition: none;
+    }
+}

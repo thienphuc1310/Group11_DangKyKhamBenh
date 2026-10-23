@@ -1,0 +1,1607 @@
+@import url('ui.css?v=20261023-7');
+html {
+    min-height: 100%;
+    background-color: #f3f6fb;
+}
+
+/* Panel chứa nội dung - dùng cho các trang cũ */
+body {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 35px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+h1, p {
+    color: teal;
+    text-align: center;
+}
+
+form {
+    margin-top: 25px;
+}
+
+label {
+    display: inline-block;
+    width: 110px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 250px;
+    padding: 9px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+#submit {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: #006666;
+}
+
+a {
+    color: teal;
+}
+
+footer {
+    margin-top: 35px;
+    border-top: 1px solid #ddd;
+    color: #777;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    body {
+        margin: 15px;
+        padding: 25px;
+    }
+
+    label,
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   DASHBOARD - CHỈ ÁP DỤNG CHO BODY.dashboard-page
+   ========================================================= */
+
+.dashboard-page {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #eaf1fd;
+    --navy: #0b1f3f;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border: #e2e8f0;
+    --bg-page: #f3f6fb;
+    --white: #ffffff;
+
+    --badge-warning-bg: #fef3c7;
+    --badge-warning-text: #b45309;
+    --badge-success-bg: #d1fae5;
+    --badge-success-text: #047857;
+    --badge-danger-bg: #fee2e2;
+    --badge-danger-text: #b91c1c;
+    --badge-neutral-bg: #f1f5f9;
+    --badge-neutral-text: #64748b;
+
+    --radius: 10px;
+    --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+
+/* ---------- BODY DASHBOARD ---------- */
+
+body.dashboard-page {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    max-width: none;
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--bg-page);
+
+    border-radius: 0;
+    box-shadow: none;
+
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--text-main);
+}
+
+
+/* ---------- MAIN ---------- */
+
+.dashboard-page > main {
+    flex: 1 0 auto;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.dashboard-page > header,
+.dashboard-page > footer {
+    flex-shrink: 0;
+}
+
+.dashboard-page,
+.dashboard-page * {
+    box-sizing: border-box;
+}
+
+
+/* ---------- LINKS ---------- */
+
+.dashboard-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ---------- HEADINGS ---------- */
+
+.dashboard-page h1,
+.dashboard-page h2,
+.dashboard-page h3,
+.dashboard-page p {
+    color: inherit;
+    text-align: left;
+}
+
+
+/* ---------- CONTAINER ---------- */
+
+.dashboard-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.dashboard-page > main.container {
+    padding-bottom: 40px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.dashboard-page .site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+.dashboard-page .site-header .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* ---------- Logo ---------- */
+
+.dashboard-page .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    color: var(--primary);
+}
+
+.dashboard-page .logo .logo-badge {
+    width: 32px;
+    height: 32px;
+
+    background: var(--primary);
+    color: var(--white);
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+
+/* ---------- Navigation ---------- */
+
+.dashboard-page .main-nav {
+    display: flex;
+    gap: 28px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-page .main-nav a {
+    font-weight: 500;
+    color: var(--text-main);
+
+    padding-bottom: 4px;
+}
+
+.dashboard-page .main-nav a.active {
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+
+/* =========================================================
+   ACCOUNT MENU
+   ========================================================= */
+
+.dashboard-page .account-menu {
+    position: relative;
+}
+
+.dashboard-page .account-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    cursor: pointer;
+
+    background: none;
+    border: none;
+
+    font: inherit;
+    color: var(--text-main);
+
+    padding: 4px;
+}
+
+.dashboard-page .avatar-circle {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: var(--primary-light);
+    color: var(--primary);
+
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+.dashboard-page .account-trigger .caret {
+    font-size: 18px;
+    color: var(--text-muted);
+
+    transition: transform 0.15s ease;
+}
+
+.dashboard-page .account-menu.open .caret {
+    transform: rotate(180deg);
+}
+
+.dashboard-page .account-dropdown {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 0;
+
+    min-width: 220px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+
+    padding: 6px;
+
+    display: none;
+
+    z-index: 50;
+}
+
+.dashboard-page .account-menu.open .account-dropdown {
+    display: block;
+}
+
+.dashboard-page .account-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    font-size: 18px;
+
+    color: var(--text-main);
+}
+
+.dashboard-page .account-dropdown a:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.dashboard-page .account-dropdown a.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.dashboard-page .account-dropdown a.logout {
+    color: #b91c1c;
+}
+
+.dashboard-page .account-dropdown hr {
+    border: none;
+    border-top: 1px solid var(--border);
+
+    margin: 6px 4px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.dashboard-page .site-footer-user {
+    background: var(--navy);
+    color: #cbd5e1;
+
+    margin: auto 0 0;
+
+    padding: 0;
+
+    border-top: none;
+}
+
+.dashboard-page .site-footer-user .footer-inner {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 18px 24px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    font-size: 18px;
+
+    text-align: left;
+}
+
+.dashboard-page .site-footer-user .footer-brand {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--white);
+
+    font-weight: 600;
+}
+
+.dashboard-page .site-footer-user .footer-brand .logo-badge {
+    width: 26px;
+    height: 26px;
+
+    font-size: 18px;
+}
+
+.dashboard-page .site-footer-user .footer-links {
+    display: flex;
+
+    gap: 22px;
+
+    flex-wrap: wrap;
+
+    color: #9fb0c9;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+.dashboard-page .page-heading h1 {
+    font-size: 28px;
+
+    margin: 24px 0 4px;
+}
+
+.dashboard-page .page-heading p {
+    color: var(--text-muted);
+
+    margin: 0 0 24px;
+}
+
+.dashboard-page .breadcrumb {
+    font-size: 18px;
+
+    color: var(--text-muted);
+
+    padding-top: 18px;
+
+    text-align: left;
+}
+
+.dashboard-page .breadcrumb a {
+    color: var(--text-muted);
+}
+
+.dashboard-page .breadcrumb .current {
+    color: var(--primary);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.dashboard-page .card {
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow-card);
+
+    padding: 20px;
+}
+
+.dashboard-page .card h2,
+.dashboard-page .card h3 {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.dashboard-page .badge {
+    display: inline-block;
+
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.dashboard-page .badge-warning {
+    background: var(--badge-warning-bg);
+    color: var(--badge-warning-text);
+}
+
+.dashboard-page .badge-success {
+    background: var(--badge-success-bg);
+    color: var(--badge-success-text);
+}
+
+.dashboard-page .badge-danger {
+    background: var(--badge-danger-bg);
+    color: var(--badge-danger-text);
+}
+
+.dashboard-page .badge-neutral {
+    background: var(--badge-neutral-bg);
+    color: var(--badge-neutral-text);
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.dashboard-page .btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    width: auto;
+}
+
+.dashboard-page .btn-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.dashboard-page .btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.dashboard-page .btn-outline {
+    background: var(--white);
+
+    border-color: var(--border);
+
+    color: var(--text-main);
+}
+
+.dashboard-page .btn-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.dashboard-page .btn-danger-outline {
+    background: var(--white);
+
+    border-color: var(--border);
+
+    color: #b91c1c;
+}
+
+.dashboard-page .btn-danger-outline:hover {
+    border-color: #b91c1c;
+}
+
+.dashboard-page .btn-sm {
+    padding: 7px 12px;
+    font-size: 18px;
+}
+
+.dashboard-page .btn-block {
+    width: 100%;
+}
+
+
+/* =========================================================
+   TABS
+   ========================================================= */
+
+.dashboard-page .tabs {
+    display: flex;
+
+    gap: 28px;
+
+    border-bottom: 1px solid var(--border);
+
+    margin-bottom: 20px;
+}
+
+.dashboard-page .tabs a {
+    padding: 10px 2px;
+
+    font-weight: 500;
+
+    color: var(--text-muted);
+
+    border-bottom: 2px solid transparent;
+}
+
+.dashboard-page .tabs a.active {
+    color: var(--primary);
+
+    border-bottom-color: var(--primary);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.dashboard-page .form-row {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(180px, 1fr)
+    );
+
+    gap: 16px;
+}
+
+.dashboard-page .form-group label {
+    display: block;
+
+    width: auto;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    margin-bottom: 6px;
+}
+
+.dashboard-page .form-group input,
+.dashboard-page .form-group select,
+.dashboard-page .form-group textarea {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    font: inherit;
+
+    color: var(--text-main);
+
+    background: var(--white);
+}
+
+
+/* =========================================================
+   TWO COLUMN
+   ========================================================= */
+
+.dashboard-page .two-col {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 24px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   INFO ROW
+   ========================================================= */
+
+.dashboard-page .info-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 18px;
+}
+
+.dashboard-page .info-row:last-child {
+    border-bottom: none;
+}
+
+.dashboard-page .info-row .label {
+    color: var(--text-muted);
+}
+
+.dashboard-page .info-row .value {
+    font-weight: 600;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.dashboard-page table.simple-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 18px;
+}
+
+.dashboard-page table.simple-table th,
+.dashboard-page table.simple-table td {
+    text-align: left;
+
+    padding: 10px 12px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.dashboard-page table.simple-table th {
+    background: #f8fafc;
+
+    color: var(--text-muted);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   DEMO NOTE
+   ========================================================= */
+
+.dashboard-page .demo-note {
+    background: var(--primary-light);
+
+    color: var(--primary-dark);
+
+    border-radius: 8px;
+
+    padding: 10px 14px;
+
+    font-size: 18px;
+
+    margin-top: 14px;
+}
+
+
+/* =========================================================
+   LỊCH KHÁM
+   ========================================================= */
+
+.dashboard-page .appointments-page .pagination-buttons {
+    display: flex;
+
+    gap: 6px;
+}
+
+.dashboard-page .appointments-page .appointments-count {
+    color: var(--text-muted);
+
+    font-size: 18px;
+}
+
+.dashboard-page .appointments-page .appointments-pagination {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 18px 0 30px;
+}
+
+.dashboard-page .appointments-page .appointment-time {
+    min-width: 150px;
+
+    font-size: 18px;
+
+    color: var(--text-muted);
+}
+
+.dashboard-page .appointments-page .appointment-specialty {
+    color: var(--text-muted);
+
+    font-size: 18px;
+}
+
+.dashboard-page .appointments-page .appointment-code {
+    font-weight: 700;
+}
+
+.dashboard-page .appointments-page .appointment-doctor {
+    min-width: 220px;
+}
+
+.dashboard-page .appointments-page .appointment-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 14px;
+
+    flex-wrap: wrap;
+}
+
+.dashboard-page .appointments-page .filter-actions {
+    text-align: right;
+
+    margin-top: 14px;
+}
+
+.dashboard-page .appointments-page .appointments-filter {
+    margin-bottom: 20px;
+}
+
+.dashboard-page .appointments-page .appointments-heading {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   =========================================================
+   THANH TOÁN
+   CHỈ ÁP DỤNG CHO .payment-page
+   =========================================================
+   ========================================================= */
+
+
+/* ---------- Trang thanh toán ---------- */
+
+.payment-page {
+    width: 100%;
+}
+
+
+/* ---------- Notice ---------- */
+
+.payment-page .payment-notice {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+    background: var(--primary-light, #eaf1fd);
+
+    border: 1px solid var(--border, #e2e8f0);
+}
+
+.payment-page .payment-registration {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.payment-page .payment-code-label {
+    color: var(--text-muted, #6b7280);
+}
+
+.payment-page .payment-code {
+    color: var(--text-main, #1f2937);
+}
+
+
+/* ---------- Card ---------- */
+
+.payment-page .card {
+    background: var(--white, #ffffff);
+
+    border: 1px solid var(--border, #e2e8f0);
+
+    border-radius: var(--radius, 10px);
+
+    box-shadow: var(
+            --shadow-card,
+            0 1px 3px rgba(15, 23, 42, 0.08)
+    );
+
+    padding: 20px;
+}
+
+.payment-page .card h3 {
+    margin-top: 0;
+
+    margin-bottom: 22px;
+
+    color: var(--text-main, #1f2937);
+}
+
+
+/* ---------- Thông tin lịch khám ---------- */
+
+.payment-page .payment-appointment {
+    margin-bottom: 20px;
+}
+
+.payment-page .info-row {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 20px;
+
+    padding: 11px 0;
+
+    border-bottom: 1px solid var(--border, #e2e8f0);
+
+    font-size: 18px;
+}
+
+.payment-page .info-row:last-child {
+    border-bottom: none;
+}
+
+.payment-page .info-row .label {
+    color: var(--text-muted, #6b7280);
+}
+
+.payment-page .info-row .value {
+    color: var(--text-main, #1f2937);
+
+    font-weight: 600;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   PHƯƠNG THỨC THANH TOÁN
+   ========================================================= */
+
+.payment-page .payment-method-card {
+    margin-top: 0;
+}
+
+
+/*
+   BÊN TRÁI:
+   Phương thức thanh toán
+
+   BÊN PHẢI:
+   QR CODE
+*/
+
+.payment-page .payment-method-content {
+    display: flex !important;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 50px;
+
+    width: 100%;
+}
+
+
+/* ---------- Danh sách phương thức ---------- */
+
+.payment-page .payment-method-list {
+    flex: 1;
+
+    min-width: 280px;
+
+    padding-top: 5px;
+}
+
+
+/*
+   QUAN TRỌNG:
+   mỗi phương thức chỉ nằm trên 1 hàng
+*/
+
+.payment-page .payment-method-option {
+    display: flex !important;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 24px;
+
+    color: var(--text-main, #1f2937);
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/*
+   Override label global ở đầu file.
+
+   Nếu không có width:auto thì:
+   label {
+       width: 110px;
+   }
+
+   sẽ khiến "Chuyển khoản ngân hàng"
+   bị xuống dòng.
+*/
+
+.payment-page .payment-method-option label {
+    display: inline-block;
+
+    width: auto !important;
+
+    min-width: 0;
+
+    margin: 0;
+
+    padding: 0;
+
+    white-space: nowrap;
+
+    color: var(--text-main, #1f2937);
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* ---------- Radio ---------- */
+
+.payment-page .payment-method-option input[type="radio"] {
+    width: 18px;
+
+    height: 18px;
+
+    margin: 0 12px 0 0;
+
+    padding: 0;
+
+    flex: 0 0 auto;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   QR CODE
+   ========================================================= */
+
+.payment-page .payment-qr-section {
+    width: 260px;
+
+    flex: 0 0 260px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-left: auto;
+}
+
+
+/* ---------- QR title ---------- */
+
+.payment-page .payment-qr-title {
+    width: 100%;
+
+    margin: 0 0 18px;
+
+    color: var(--text-main, #1f2937);
+
+    font-size: 18px;
+
+    text-align: center;
+}
+
+
+/* ---------- QR box ---------- */
+
+.payment-page .payment-qr-code {
+    width: 220px;
+
+    height: 220px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #d9dfe7;
+}
+
+.payment-page .payment-qr-code strong {
+    color: var(--navy, #0b1f3f);
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   NỘI DUNG CHUYỂN KHOẢN
+   ========================================================= */
+
+.payment-page .payment-transfer-content {
+    margin-top: 28px;
+
+    color: var(--text-main, #1f2937);
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+.payment-page .payment-transfer-content strong {
+    color: var(--primary, #2563eb);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TỔNG TIỀN
+   ========================================================= */
+
+.payment-page .payment-total {
+    border-top: 1px solid var(--border, #e2e8f0);
+
+    padding-top: 14px;
+
+    margin-top: 6px;
+}
+
+.payment-page .payment-total-label {
+    color: var(--text-main, #1f2937);
+
+    font-weight: 600;
+}
+
+.payment-page .payment-total-value {
+    color: var(--primary, #2563eb);
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   NÚT XÁC NHẬN
+   ========================================================= */
+
+.payment-page .payment-confirm-section {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: 40px;
+}
+
+.payment-page .payment-confirm-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 300px;
+
+    padding: 15px 35px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: var(--primary, #2563eb);
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+            background-color 0.2s ease,
+            transform 0.2s ease;
+}
+
+.payment-page .payment-confirm-button:hover {
+    background: var(--primary-dark, #1d4ed8);
+
+    transform: translateY(-1px);
+}
+
+.payment-page .payment-confirm-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   PAYMENT LINK
+   ========================================================= */
+
+.payment-page .payment-divider {
+    border: none;
+
+    border-top: 1px solid var(--border, #e2e8f0);
+
+    margin: 20px 0;
+}
+
+.payment-page .payment-back-link {
+    color: var(--primary, #2563eb);
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.payment-page .payment-back-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   PAYMENT BADGE
+   ========================================================= */
+
+.payment-page .badge {
+    display: inline-block;
+
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.payment-page .badge-neutral {
+    background: var(--badge-neutral-bg, #f1f5f9);
+
+    color: var(--badge-neutral-text, #64748b);
+}
+
+
+/* =========================================================
+   =========================================================
+   THANH TOÁN THÀNH CÔNG
+   CHỈ ÁP DỤNG CHO .payment-success-page
+   =========================================================
+   ========================================================= */
+
+.payment-success-page {
+    min-height: calc(100vh - 130px);
+
+    display: flex !important;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 100%;
+
+    padding: 40px 20px;
+
+    box-sizing: border-box;
+}
+
+
+/* ---------- Card ---------- */
+
+.payment-success-card {
+    width: 100%;
+
+    max-width: 750px;
+
+    padding: 65px 38px 70px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border, #e2e8f0);
+
+    border-radius: 14px;
+
+    box-shadow:
+            0 3px 12px rgba(15, 23, 42, 0.08);
+
+    text-align: center;
+}
+
+
+/* ---------- Check ---------- */
+
+.payment-success-icon {
+    margin-bottom: 40px;
+
+    color: var(--navy, #0b1f3f);
+
+    font-size: 70px;
+
+    line-height: 1;
+
+    text-align: center;
+}
+
+
+/* ---------- Title ---------- */
+
+.payment-success-title {
+    margin: 0 0 28px;
+
+    color: var(--navy, #0b1f3f) !important;
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    text-align: center !important;
+}
+
+
+/* ---------- Message ---------- */
+
+.payment-success-message {
+    max-width: 680px;
+
+    margin: 0 auto 45px;
+
+    color: var(--text-muted, #6b7280) !important;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    text-align: center !important;
+}
+
+
+/* ---------- Buttons ---------- */
+
+.payment-success-actions {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 65px;
+
+    text-align: center;
+}
+
+.payment-success-actions a {
+    color: var(--navy, #0b1f3f) !important;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.payment-success-actions a:hover {
+    color: var(--primary, #2563eb) !important;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 860px) {
+
+    .dashboard-page .two-col {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-page .main-nav {
+        display: none;
+    }
+
+    .payment-page .payment-method-content {
+        gap: 25px;
+    }
+
+    .payment-page .payment-qr-section {
+        width: 230px;
+
+        flex-basis: 230px;
+    }
+
+    .payment-page .payment-qr-code {
+        width: 200px;
+
+        height: 200px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .payment-page .payment-method-content {
+        flex-direction: column !important;
+
+        align-items: center;
+    }
+
+    .payment-page .payment-method-list {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .payment-page .payment-method-option {
+        width: 100%;
+    }
+
+    .payment-page .payment-method-option label {
+        white-space: normal;
+    }
+
+    .payment-page .payment-qr-section {
+        width: 100%;
+
+        flex-basis: auto;
+
+        margin-left: 0;
+    }
+
+    .payment-page .payment-transfer-content {
+        text-align: center;
+    }
+
+    .payment-page .payment-confirm-button {
+        width: 100%;
+
+        max-width: 350px;
+    }
+
+    .payment-success-page {
+        padding: 30px 15px;
+    }
+
+    .payment-success-card {
+        padding: 50px 25px;
+    }
+
+    .payment-success-title {
+        font-size: 30px;
+    }
+
+    .payment-success-message {
+        font-size: 18px;
+    }
+
+    .payment-success-actions {
+        flex-direction: column;
+
+        gap: 24px;
+    }
+}
+.payment-page .payment-layout {
+    display: grid;
+
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+
+    gap: 20px;
+
+    align-items: start;
+}
+
+.payment-page .payment-left,
+.payment-page .payment-right {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    min-width: 0;
+}
+
+/* Các card trong bố cục 2 cột không cần margin riêng nữa vì đã có gap */
+.payment-page .payment-left .card,
+.payment-page .payment-right .card {
+    margin: 0;
+}
+
+/* Link quay lại nằm dưới cùng */
+.payment-page .payment-divider {
+    margin-top: 24px;
+}
+
+/* Màn hình nhỏ: xếp thành 1 cột (1 → 2 → 3) */
+@media (max-width: 900px) {
+
+    .payment-page .payment-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================
+   HỒ SƠ BỆNH ÁN (MEDICAL RECORD)
+   ========================================= */
+
+/* Bảng lịch sử */
+.record-history-table, .payment-history-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.record-history-table th, .record-history-table td,
+.payment-history-table th, .payment-history-table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+.record-history-table th, .payment-history-table th { background-color: #f9f9f9; font-weight: bold; }
+.record-history-table tr:hover, .payment-history-table tr:hover { background-color: #f1f1f1; }
+.active-row { background-color: #e9f5ff !important; }
+
+/* Form lọc ngày tháng */
+.filter-form { display: flex; gap: 15px; align-items: flex-end; margin-bottom: 20px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.filter-form .form-group { display: flex; flex-direction: column; }
+.filter-form label { margin-bottom: 5px; font-weight: 500; font-size: 18px; }
+.filter-form input[type="date"] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; outline: none; }
+.filter-form button { padding: 8px 16px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; height: fit-content; }
+.filter-form button:hover { background-color: #0056b3; }
+
+/* Khung chi tiết hồ sơ */
+.detail-section { margin-top: 20px; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.detail-group { margin-bottom: 15px; }
+.detail-group label { display: block; font-weight: bold; color: #333; margin-bottom: 5px; }
+.detail-group p { margin: 0; padding: 10px; background: #f8f9fa; border-radius: 4px; border: 1px solid #e9ecef; line-height: 1.5; }

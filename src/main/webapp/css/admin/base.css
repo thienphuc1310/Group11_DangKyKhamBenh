@@ -1,0 +1,47 @@
+/*
+   BASE - Biến màu, reset, typography
+   Sửa màu chủ đạo toàn hệ thống ở đây
+ */
+
+:root {
+  /* Màu thương hiệu */
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --primary-light: #EFF6FF;
+
+  /* Nền và viền */
+  --bg: #F8FAFC;
+  --card: #FFFFFF;
+  --border: #E2E8F0;
+  --hover-bg: #FAFBFC;
+
+  /* Chữ */
+  --text: #0F172A;
+  --text-muted: #64748B;
+  --gray-text: #475569;
+
+  /* Màu trạng thái */
+  --green-bg: #DCFCE7;   --green-text: #166534;
+  --gray-bg: #F1F5F9;
+  --red-bg: #FEE2E2;     --red-text: #991B1B;
+  --orange-bg: #FFEDD5;  --orange-text: #9A3412;
+  --success: #16A34A;
+
+  /* Kích thước */
+  --radius: 10px;
+  --radius-sm: 8px;
+  --sidebar-width: 290px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 18px;
+}
+
+.page-title { font-size: 28px; line-height: 1.2; }
+
+a { color: inherit; }

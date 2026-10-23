@@ -1,0 +1,122 @@
+.patient-site .patient-footer {
+    width: 100%;
+    margin-top: 24px;
+    border-top: 1px solid #dce7f5;
+    background: #fff;
+    color: #627b99;
+    font-size: 18px;
+}
+
+.patient-footer-content {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px 32px;
+}
+
+.patient-site .patient-footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #0866e9;
+    font-size: 29px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.patient-footer-logo img { width: 34px; height: 34px; flex-shrink: 0; }
+
+.patient-site .patient-footer h2 {
+    margin: 5px 0 18px;
+    color: #173657;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.patient-site .patient-footer p {
+    margin: 14px 0;
+    color: #627b99;
+    line-height: 1.8;
+}
+
+.patient-footer-intro p {
+    max-width: 320px;
+}
+
+.patient-footer ul {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.patient-site .patient-footer a {
+    text-decoration: none;
+}
+
+.patient-site .patient-footer li a,
+.patient-site .patient-footer-contact a {
+    color: #627b99;
+}
+
+.patient-footer-contact a {
+    display: block;
+    width: fit-content;
+    margin-top: 10px;
+    overflow-wrap: anywhere;
+}
+
+.patient-site .patient-footer .patient-footer-booking {
+    display: inline-block;
+    margin-top: 4px;
+    color: #0866e9;
+    font-weight: 600;
+}
+
+.patient-site .patient-footer a:hover {
+    color: #0758c7;
+    text-decoration: underline;
+}
+
+.patient-footer a:focus-visible {
+    outline: 2px solid #0866e9;
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+.patient-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-top: 1px solid #e1eaf5;
+    font-size: 18px;
+}
+
+@media (max-width: 900px) {
+    .patient-footer-content {
+        gap: 30px;
+        grid-template-columns: 1.2fr 1fr 1fr;
+    }
+
+    .patient-footer-bottom {
+        margin: 0 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .patient-footer-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 30px 22px;
+    }
+
+    .patient-footer-bottom {
+        margin: 0 22px;
+    }
+}

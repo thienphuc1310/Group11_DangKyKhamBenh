@@ -1,0 +1,150 @@
+/* 1. Tính padding và border trong kích thước phần tử */
+.site-footer,
+.site-footer * {
+    box-sizing: border-box;
+}
+
+/* 2. Nền và font chữ */
+.site-footer {
+    background-color: #14365f;
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* 3. Chia nội dung thành bốn cột */
+.footer-columns {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+    gap: 40px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 32px;
+}
+
+.footer-columns > div {
+    min-width: 0;
+}
+
+/* 4. Tiêu đề mỗi cột */
+.footer-columns h2 {
+    margin: 0 0 16px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* 5. Liên kết trong footer */
+.site-footer a {
+    color: #ffffff;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.site-footer a:hover {
+    color: #b9d5ff;
+    text-decoration: underline;
+}
+
+.site-footer a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+}
+
+/* 6. Logo và chữ thương hiệu */
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.footer-logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 36px;
+    border-radius: 6px;
+
+    background-color: #0959df;
+    color: #ffffff;
+    font-size: 26px;
+}
+
+.footer-info p {
+    margin: 0 0 16px;
+}
+
+/* 7. Bỏ dấu chấm; giữ các mục xếp dọc */
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li + li {
+    margin-top: 10px;
+}
+
+/* 8. Riêng mạng xã hội xếp ngang */
+.footer-social {
+    display: flex;
+    gap: 12px;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 9. Khung tròn cho liên kết mạng xã hội */
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    border: 1px solid #b5c8df;
+    border-radius: 50%;
+
+    font-size: 20px;
+}
+
+.footer-social a:hover {
+    background-color: #245080;
+    text-decoration: none;
+}
+
+/* 10. Bản quyền phía dưới */
+.footer-copyright {
+    margin: 0;
+    padding: 12px 24px;
+    border-top: 1px solid #ffffff33;
+
+    color: #b5c8df;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* 11. Màn hình vừa: hai cột */
+@media (max-width: 900px) {
+    .footer-columns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+}
+
+/* 12. Điện thoại: một cột */
+@media (max-width: 560px) {
+    .footer-columns {
+        grid-template-columns: 1fr;
+        padding: 32px 20px;
+    }
+}

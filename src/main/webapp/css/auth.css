@@ -1,0 +1,354 @@
+@import url('ui.css?v=20261023-7');
+/* ===== 1. Thiết lập chung trong khu vực đăng nhập/đăng ký ===== */
+.login-layout,
+.login-layout * {
+    box-sizing: border-box;
+}
+
+.login-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 80px;
+
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 32px;
+
+    background-color: #ffffff;
+    color: #15345b;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.login-layout > section {
+    min-width: 0;
+}
+
+.login-layout h1,
+.login-layout h2,
+.login-layout p {
+    margin-top: 0;
+}
+
+/* ===== 2. Phần giới thiệu bên trái ===== */
+.login-intro {
+    padding-top: 28px;
+}
+
+.login-intro h1 {
+    margin-bottom: 20px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.login-intro > p {
+    max-width: 350px;
+    margin-bottom: 24px;
+
+    color: #758599;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Ảnh minh họa khi bạn thêm đường dẫn */
+.login-intro > img {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 32px 0;
+}
+
+/* Hiện tại src trống nên ẩn ảnh */
+.login-intro > img[src=""],
+.login-intro > img:not([src]) {
+    display: none;
+}
+
+/* ===== 3. Danh sách lợi ích ===== */
+.login-layout .intro-benefits {
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
+
+    color: #758599;
+    font-size: 18px;
+}
+
+.login-layout .intro-benefits li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.login-layout .intro-benefits li + li {
+    margin-top: 10px;
+}
+
+
+/* ===== 4. Khung form bên phải ===== */
+.login-layout .login-card,
+.login-layout .register-card {
+    padding: 32px;
+    border: 1px solid #dfe8f4;
+    border-radius: 18px;
+
+    background-color: #ffffff;
+    box-shadow: 0 12px 32px rgba(21, 52, 91, 0.04);
+}
+
+/* Tiêu đề form */
+.login-layout .login-card > h2,
+.login-layout .register-card > h2 {
+    margin-bottom: 8px;
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+/* Mô tả bên dưới tiêu đề */
+.login-layout .login-card > h2 + p,
+.login-layout .register-card > h2 + p {
+    margin-bottom: 26px;
+    color: #758599;
+    font-size: 18px;
+}
+
+/* ===== 5. Form và nhóm trường ===== */
+.login-layout form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 0;
+}
+
+.login-layout .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.login-layout .form-group > label {
+    color: #172b46;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* ===== 6. Các ô nhập ===== */
+.login-layout .form-group input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 11px 12px;
+
+    border: 1px solid #d5e2f2;
+    border-radius: 7px;
+
+    background-color: #f9fbff;
+    color: #172b46;
+    font: inherit;
+    font-size: 18px;
+}
+
+.login-layout .form-group input::placeholder {
+    color: #8795a8;
+}
+
+.login-layout .form-group input:focus {
+    outline: 2px solid #0959df;
+    outline-offset: 2px;
+}
+
+/* ===== 7. Ô mật khẩu và nút Hiện ===== */
+.login-layout .password-field {
+    position: relative;
+}
+
+.login-layout .password-field input {
+    padding-right: 65px;
+}
+
+.login-layout .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+
+    padding: 8px;
+    border: 0;
+    border-radius: 4px;
+
+    background-color: transparent;
+    color: #0959df;
+    font: inherit;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.login-layout .toggle-password:hover {
+    background-color: #eaf2ff;
+}
+
+/* ===== 8. Nút đăng nhập và đăng ký ===== */
+/* Cả hai trang của bạn đang dùng class login-button */
+.login-layout .login-button {
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 7px;
+
+    background-color: #1260d5;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+}
+
+.login-layout .login-button:hover {
+    background-color: #0848b5;
+}
+
+/* ===== 9. Các dòng liên kết dưới form ===== */
+.login-layout .login-card > form ~ p,
+.login-layout .register-card > form ~ p {
+    margin: 20px 0 0;
+    color: #758599;
+    font-size: 18px;
+    text-align: center;
+}
+
+.login-layout a {
+    color: #0959df;
+    text-decoration: none;
+}
+
+.login-layout .login-card > p a,
+.login-layout .register-card > p a {
+    font-weight: 700;
+}
+
+.login-layout a:hover {
+    text-decoration: underline;
+}
+
+/* Hiển thị vị trí khi dùng bàn phím */
+.login-layout button:focus-visible,
+.login-layout a:focus-visible {
+    outline: 2px solid #0959df;
+    outline-offset: 3px;
+}
+
+/* ===== 10. Tablet ===== */
+@media (max-width: 900px) {
+    .login-layout {
+        gap: 32px;
+        padding: 32px 24px;
+    }
+
+    .login-intro h1 {
+        font-size: 30px;
+    }
+
+    .login-layout .login-card,
+    .login-layout .register-card {
+        padding: 24px;
+    }
+}
+
+/* ===== 11. Điện thoại: hai phần xếp dọc ===== */
+@media (max-width: 650px) {
+    .login-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        padding: 24px 16px;
+    }
+
+    .login-intro {
+        padding-top: 0;
+    }
+
+    .login-intro h1 {
+        font-size: 28px;
+    }
+
+    .login-layout .intro-benefits {
+        margin-top: 24px;
+    }
+
+    .login-layout .login-card > h2,
+    .login-layout .register-card > h2 {
+        font-size: 24px;
+    }
+}
+
+/* ===== Trang thông báo đăng ký thành công ===== */
+.register-success-page,
+.register-success-page * {
+    box-sizing: border-box;
+}
+
+.register-success-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 520px;
+    padding: 56px 24px;
+    background-color: #f5f8fd;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.register-success-card {
+    width: 100%;
+    max-width: 560px;
+    padding: 44px 36px;
+    border: 1px solid #dfe8f4;
+    border-radius: 18px;
+    background-color: #ffffff;
+    box-shadow: 0 12px 32px rgba(21, 52, 91, 0.08);
+    color: #15345b;
+    text-align: center;
+}
+
+.register-success-icon { display: block; width: 68px; height: 68px; margin: 0 auto 22px; }
+
+.register-success-card h1 {
+    margin: 0 0 12px;
+    font-size: 30px;
+}
+
+.register-success-card p {
+    margin: 0 0 28px;
+    color: #64748b;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.register-success-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 24px;
+    border-radius: 7px;
+    background-color: #1260d5;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.register-success-button:hover {
+    background-color: #0848b5;
+}
+
+.register-success-button:focus-visible {
+    outline: 2px solid #0959df;
+    outline-offset: 3px;
+}

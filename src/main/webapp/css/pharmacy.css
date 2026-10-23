@@ -1,0 +1,45 @@
+/* Trang nhập thuốc dùng màu, sidebar, form, nút và bảng từ css/admin/admin.css. */
+.medicine-page > h1 { margin-bottom: 6px; font-size: 26px; }
+.medicine-page h2 { font-size: 18px; }
+.medicine-create-card { padding: 22px; }
+.medicine-create-card > h2 { margin-bottom: 8px; }
+.medicine-note { color: var(--text-muted); font-size: 18px; line-height: 1.5; }
+.medicine-create-card > .medicine-note { margin-bottom: 20px; }
+.medicine-create-form.admin-form { max-width: none; padding: 0; border: 0; }
+.medicine-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 20px; }
+.medicine-description { grid-column: span 2; }
+.medicine-search { align-items: center; padding: 0 16px; }
+.medicine-search .btn { min-height: 40px; }
+.medicine-table-wrap { width: 100%; overflow-x: auto; }
+.medicine-table { min-width: 1080px; }
+.medicine-table td { vertical-align: top; }
+.medicine-code { max-width: 150px; overflow-wrap: anywhere; font-size: 18px; }
+.medicine-name { min-width: 190px; max-width: 280px; overflow-wrap: anywhere; }
+.medicine-name .medicine-note { display: block; margin-top: 4px; white-space: pre-wrap; }
+.medicine-page .btn { justify-content: center; white-space: nowrap; }
+.medicine-editor > summary { list-style: none; }
+.medicine-editor > summary::-webkit-details-marker { display: none; }
+.medicine-editor[open] > summary { margin-bottom: 12px; }
+.medicine-inline-form.admin-form { width: 230px; max-width: none; padding: 14px; margin: 0 0 8px; }
+.medicine-inline-form .form-group:last-of-type { margin-bottom: 12px; }
+.medicine-history-link { display: inline-block; margin-top: 10px; color: var(--primary); font-size: 18px; }
+.medicine-history-note { padding: 0 16px 16px; }
+.medicine-history-table { min-width: 650px; }
+.medicine-history td:last-child { white-space: pre-wrap; overflow-wrap: anywhere; }
+.pharmacy-sidebar .sidebar-logout { width: 100%; border: 0; font: inherit; cursor: pointer; }
+.pharmacy-sidebar .sidebar-logout:hover { background: #fecaca; }
+.medicine-page :focus-visible, .pharmacy-sidebar :focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.medicine-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (max-width: 1000px) {
+    .medicine-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .medicine-description { grid-column: auto; }
+}
+
+@media (max-width: 650px) {
+    .medicine-grid { grid-template-columns: minmax(0, 1fr); }
+    .medicine-create-card { padding: 18px; }
+    .medicine-search { align-items: stretch; }
+    .medicine-search input { min-width: 100%; }
+    .medicine-search .btn { flex: 1; }
+}

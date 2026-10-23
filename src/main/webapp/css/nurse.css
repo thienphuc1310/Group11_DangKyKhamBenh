@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 32px 20px;
+    font-family: Arial, sans-serif;
+    color: #17324d;
+    background: #f1f5f9;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 28px;
+    border-radius: 16px;
+    background: white;
+}
+
+/* Trang phiếu đánh giá */
+main.assessment-page {
+    max-width: 900px;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+a {
+    color: #0369a1;
+}
+
+.muted {
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.notice {
+    padding: 14px;
+    margin: 16px 0;
+    border-radius: 8px;
+    background: #e0f2fe;
+}
+
+.assessment-page .notice {
+    background: #dcfce7;
+}
+
+.notice.test {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* Bộ lọc danh sách */
+.filter-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 24px 0;
+}
+
+input,
+textarea,
+button,
+.button {
+    padding: 11px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+}
+
+button,
+.button {
+    display: inline-block;
+    border: 0;
+    background: #0369a1;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.assessment-page button {
+    padding: 12px 18px;
+}
+
+/* Bảng danh sách */
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background: #f8fafc;
+}
+
+.empty {
+    text-align: center;
+    color: #64748b;
+}
+
+/* Thông tin bệnh nhân */
+.info {
+    padding: 18px;
+    margin-bottom: 22px;
+    background: #f8fafc;
+    border-radius: 10px;
+}
+
+.info p {
+    margin: 8px 0;
+}
+
+/* Form đánh giá */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.grid label {
+    display: block;
+    margin-bottom: 7px;
+}
+
+.grid input,
+.grid textarea {
+    width: 100%;
+    padding: 11px;
+}
+
+textarea {
+    min-height: 95px;
+    resize: vertical;
+}
+
+.wide {
+    grid-column: 1 / -1;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+button.complete {
+    background: #15803d;
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,245 @@
+@import url('ui.css?v=20261023-9');
+/* Nền và bố cục trang bác sĩ */
+* { box-sizing: border-box; }
+body { margin: 0; background-color: #f7f9fd; color: #173657; font-family: "Segoe UI", Arial, sans-serif; font-size: 18px; line-height: 1.5; }
+a { color: #0866e9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, input, select, textarea { font: inherit; }
+button, input, select, textarea, .appointment-info { border: 1px solid #dce5f0; border-radius: 6px; }
+button { padding: 10px 16px; background: #fff; color: #0866e9; cursor: pointer; }
+button:hover { background: #eef5ff; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+input, select, textarea { width: 100%; min-width: 0; padding: 10px 12px; background: #fff; color: #173657; }
+textarea { resize: vertical; }
+:focus-visible { outline: 2px solid #0866e9; outline-offset: 3px; }
+[hidden] { display: none !important; }
+.doctor-layout { display: flex; min-height: 100vh; }
+.doctor-sidebar { display: flex; flex-direction: column; width: 290px; height: 100vh; flex-shrink: 0; position: sticky; top: 0; border-right: 1px solid #e2e9f3; background: #fff; }
+.doctor-sidebar-brand { padding: 20px; border-bottom: 1px solid #e2e9f3; }
+.doctor-logo { display: flex; align-items: center; gap: 10px; color: #173657; text-decoration: none; }
+.doctor-logo:hover { text-decoration: none; }
+.logo-icon { display: block; width: 34px; height: 34px; flex-shrink: 0; }
+.doctor-brand-text { display: flex; flex-direction: column; min-width: 0; overflow-wrap: anywhere; }
+.doctor-brand-title { color: #0866e9; font-size: 20px; font-weight: 700; line-height: 1.2; }
+.doctor-brand-subtitle { color: #71839d; font-size: 18px; font-weight: 400; }
+.doctor-sidebar nav { display: flex; flex: 1; flex-direction: column; overflow-y: auto; padding: 12px; }
+.doctor-sidebar nav a { display: block; margin-bottom: 4px; padding: 10px 12px; border-left: 3px solid transparent; border-radius: 8px; color: #71839d; }
+.doctor-sidebar nav a:hover { background: #f6f8fb; color: #173657; text-decoration: none; }
+.doctor-sidebar nav a.active { border-left-color: #0866e9; background: #eef5ff; color: #0866e9; }
+.doctor-sidebar-divider { height: 1px; margin: 14px 0; background: #e2e9f3; }
+.doctor-sidebar-footer { padding: 14px; border-top: 1px solid #e2e9f3; }
+.doctor-sidebar-user { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.doctor-user-avatar { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; background: #0866e9; color: #fff; font-weight: 700; }
+.doctor-user-text { display: flex; min-width: 0; flex-direction: column; }
+.doctor-user-name { overflow: hidden; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.doctor-user-role { color: #71839d; font-size: 18px; }
+.doctor-logout { display: block; padding: 9px 12px; border-radius: 8px; background: #ffe5e5; color: #b42318; text-align: center; }
+.doctor-logout:hover { background: #ffd8d8; text-decoration: none; }
+.doctor-content { flex: 1; min-width: 0; }
+.doctor-page { max-width: 1450px; margin: auto; padding: 30px; }
+h1 { margin: 0 0 6px; font-size: 27px; line-height: 1.3; }
+h2 { margin: 0 0 12px; font-size: 18px; }
+h3 { font-size: 18px; }
+.doctor-page > p, .page-heading p { margin: 0 0 26px; color: #71839d; }
+.doctor-card { border: 1px solid #dce5f0; border-radius: 10px; background: #fff; overflow: hidden; }
+.doctor-footer { padding: 16px 30px; color: #71839d; font-size: 18px; }
+.save-button { border-color: #0866e9; background: #0866e9; color: #fff; }
+.save-button:hover { background: #0754c0; }
+.success-message, .form-error { margin: 16px 0; padding: 12px 16px; border: 1px solid; border-radius: 8px; }
+.success-message { border-color: #a9dfcf; background: #eaf8f2; color: #08745f; }
+.form-error { border-color: #f0b5bd; background: #fff0f2; color: #b42335; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; border: 1px solid #dce5f0; border-radius: 6px; }
+.btn-outline { background: #fff; color: #0866e9; }
+small, .muted { color: #71839d; font-size: 18px; }
+small { display: block; margin-top: 4px; }
+
+/* Lịch làm việc và bảng dữ liệu */
+.schedule-toolbar, .toolbar-group, .page-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.schedule-toolbar { margin-bottom: 24px; }
+.toolbar-group input { width: auto; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th, td { padding: 16px; border-bottom: 1px solid #e5ecf5; vertical-align: middle; }
+th { font-size: 18px; background: #fbfcfe; }
+td { font-size: 18px; }
+tbody tr:last-child td, tbody tr:last-child th { border-bottom: 0; }
+.schedule-table { min-width: 1200px; table-layout: fixed; text-align: center; }
+.schedule-table th, .schedule-table td { border-right: 1px solid #e5ecf5; padding: 14px 8px; }
+.schedule-table tr > :last-child { border-right: 0; }
+.schedule-table tbody td { height: 165px; }
+.day-date { display: block; margin-top: 4px; font-weight: 400; }
+.shift-card { width: 100%; padding: 12px 7px; border: 0; background: #eaf3ff; color: #173657; font-size: 18px; text-align: left; }
+.shift-card span { display: block; margin-bottom: 6px; }
+.shift-card small { font-size: 18px; }
+.doctor-page > .schedule-legend { display: flex; align-items: center; gap: 8px; margin-top: 18px; font-size: 18px; }
+.schedule-legend span { width: 18px; height: 18px; border-radius: 4px; background: #e3efff; }
+#schedule-empty { padding: 30px; text-align: center; color: #71839d; }
+
+/* Thống kê và bộ lọc lịch hẹn */
+.capacity-card {
+    margin-top: 24px;
+    padding: 24px;
+}
+
+.capacity-card h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+}
+
+.capacity-card > p {
+    margin: 0 0 22px;
+    color: #71839d;
+    line-height: 1.6;
+}
+
+.capacity-form {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.capacity-field {
+    display: flex;
+    flex: 0 1 300px;
+    min-width: 0;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.capacity-field label {
+    font-weight: 600;
+}
+
+.capacity-field input,
+.capacity-form button {
+    min-height: 48px;
+}
+
+@media (max-width: 650px) {
+    .capacity-card {
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    .capacity-form {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .capacity-field {
+        flex: none;
+        width: 100%;
+    }
+}
+
+.summary-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 18px; }
+.summary-card { padding: 20px 24px; }
+.summary-card span { color: #71839d; }
+.summary-card strong { display: block; margin-top: 6px; font-size: 24px; }
+.filter-form { display: flex; gap: 16px; padding: 18px; border-bottom: 1px solid #e5ecf5; flex-wrap: wrap; }
+.form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+
+.form-group label { font-size: 18px; font-weight: 600; }
+.filter-form .form-group { flex: 1; min-width: 155px; margin: 0; }
+.filter-form .search-field { flex: 2; }
+.status { display: inline-block; padding: 7px 12px; border-radius: 6px; font-size: 18px; white-space: nowrap; }
+.waiting { background: #ecf4ff; color: #0866e9; }
+.completed { background: #eaf8f2; color: #00856a; }
+.cancelled { background: #fff0f2; color: #d82b40; }
+.table-note { margin: 0; padding: 18px; border-top: 1px solid #e5ecf5; color: #71839d; font-size: 18px; }
+
+/* Chi tiết buổi khám */
+.back-link { display: inline-block; margin-bottom: 28px; font-size: 18px; }
+.page-heading { margin-bottom: 24px; }
+.page-heading p { margin-bottom: 0; }
+.appointment-info { padding: 12px 16px; background: #fff; }
+.appointment-info small { margin: 0 0 6px; }
+.patient-summary { display: flex; align-items: center; gap: 24px; padding: 22px; flex-wrap: wrap; }
+.patient-summary h2, .patient-summary p { margin: 0 0 6px; }
+.patient-summary small { margin: 0 0 10px; }
+.patient-avatar { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: #e4f0ff; color: #2864aa; font-size: 24px; font-weight: 700; }
+.record-tabs { display: flex; gap: 28px; margin: 22px 0 14px; flex-wrap: wrap; }
+.record-tabs a { padding: 12px 0; border-bottom: 2px solid #dce5f0; }
+.record-tabs a:hover { border-color: #0866e9; }
+.patient-history { padding: 16px 20px; margin-bottom: 16px; scroll-margin-top: 20px; }
+summary { cursor: pointer; }
+.exam-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 24px; padding: 22px; }
+.exam-fields .form-group:last-child { margin-bottom: 0; }
+.prescription-table { margin-bottom: 12px; border: 1px solid #e5ecf5; border-radius: 6px; }
+.prescription-table th, .prescription-table td { padding: 10px 8px; }
+.prescription-table input { min-width: 65px; padding: 8px; }
+.prescription-table input[type="text"] { min-width: 100px; }
+.empty-state { padding: 42px 16px; text-align: center; color: #71839d; }
+.empty-state > span { display: inline-block; padding: 8px 24px; border-radius: 50%; background: #eef5ff; color: #75a9ee; font-size: 40px; }
+.empty-state p { font-size: 18px; }
+.form-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 18px; }
+.form-note { color: #71839d; font-size: 18px; }
+
+/* Hồ sơ bệnh nhân */
+.record-filter-actions { display: flex; align-self: flex-end; align-items: stretch; gap: 10px; }
+.record-filter-actions .btn,
+.record-filter-actions button { min-height: 42px; margin: 0; }
+.patient-record-list { margin-bottom: 24px; }
+.record-detail-link { white-space: nowrap; }
+.record-patient-summary { margin-bottom: 24px; }
+.patient-main-info { min-width: 210px; margin-right: auto; }
+.record-history > h2 { margin: 0 0 14px; font-size: 20px; }
+.doctor-records-page .record-patient-summary { padding: 24px; gap: 24px 32px; }
+.doctor-records-page .patient-summary > div { min-width: 0; overflow-wrap: anywhere; }
+.doctor-records-page .medical-record-heading { padding: 22px 24px; }
+.doctor-records-page .medical-record-grid { padding: 24px; gap: 24px 32px; }
+.doctor-records-page .medical-record-grid > div { min-width: 0; overflow-wrap: anywhere; }
+.doctor-records-page .medical-record-grid small { margin-bottom: 8px; }
+.doctor-records-page .clinical-section { margin-top: 24px; }
+.medical-record-card { margin-bottom: 16px; }
+.medical-record-heading { display: flex; justify-content: space-between; gap: 16px; padding: 16px 20px; border-bottom: 1px solid #e5ecf5; background: #fbfcfe; }
+.medical-record-heading span { display: block; margin-top: 4px; color: #71839d; font-size: 18px; }
+.medical-record-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 20px; }
+.medical-record-grid small { margin: 0 0 5px; font-weight: 600; }
+.medical-record-grid p { margin: 0; white-space: pre-line; }
+.record-prescription { grid-column: 1 / -1; }
+.record-pagination { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 18px; }
+.btn-disabled { background: #f1f4f8; color: #9aa8b9; cursor: not-allowed; }
+.doctor-profile-card { padding: 24px; }
+.doctor-profile-summary { display: flex; align-items: center; gap: 14px; padding-bottom: 20px; border-bottom: 1px solid #e5ecf5; }
+.doctor-profile-summary h2, .doctor-profile-summary p { margin: 0; }
+.doctor-profile-summary p { margin-top: 4px; color: #71839d; }
+.doctor-profile-avatar { display: inline-flex; align-items: center; justify-content: center; width: 54px; height: 54px; border-radius: 50%; background: #eaf3ff; color: #0866e9; font-size: 18px; font-weight: 700; }
+.doctor-profile-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; padding-top: 22px; }
+.doctor-profile-grid .profile-wide { grid-column: 1 / -1; }
+.doctor-profile-actions { display: flex; justify-content: flex-end; gap: 12px; padding-top: 8px; }
+dialog { width: min(460px, 92vw); padding: 24px; border: 1px solid #dce5f0; border-radius: 12px; color: #173657; }
+dialog::backdrop { background: rgba(23, 54, 87, .3); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Máy tính bảng và điện thoại */
+@media (max-width: 1000px) {
+    .doctor-sidebar { width: 250px; }
+    .doctor-page { padding: 22px; }
+    .exam-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 650px) {
+    .doctor-layout { flex-direction: column; }
+    .doctor-sidebar { width: 100%; height: auto; position: static; border-right: 0; border-bottom: 1px solid #e2e9f3; }
+    .doctor-sidebar nav { flex-direction: row; flex-wrap: wrap; gap: 4px; }
+    .doctor-sidebar nav a { padding: 10px; }
+    .doctor-sidebar-divider { display: none; }
+    .doctor-sidebar-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .doctor-sidebar-user { margin-bottom: 0; }
+    .doctor-logout { min-width: 110px; }
+    .doctor-page { padding: 22px 16px; }
+    h1 { font-size: 24px; }
+    .summary-grid { gap: 8px; }
+    .summary-card { padding: 14px 10px; }
+    .patient-summary { gap: 16px; }
+    .doctor-profile-grid { grid-template-columns: minmax(0, 1fr); }
+    .doctor-profile-grid .profile-wide { grid-column: auto; }
+    .exam-layout { padding: 16px; }
+    .form-actions { flex-wrap: wrap; }
+    .record-filter-actions { width: 100%; align-items: stretch; flex-direction: column; }
+    .medical-record-heading { flex-direction: column; }
+    .medical-record-grid { grid-template-columns: minmax(0, 1fr); }
+    .record-prescription { grid-column: auto; }
+    .record-pagination { flex-wrap: wrap; }
+}
